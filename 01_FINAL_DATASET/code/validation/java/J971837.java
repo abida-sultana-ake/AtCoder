@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        try (Scanner in = new Scanner(System.in)) {
+            solve(in);
+        }
+    }
+
+    private static void solve(Scanner in) {
+        int N = in.nextInt();
+        long T = in.nextLong();
+        long[] A = new long[N];
+        for (int i = 0; i < N; i++) {
+            A[i] = in.nextLong();
+        }
+
+        // takahashi
+        long min = Long.MAX_VALUE;
+        long maxgap = Long.MIN_VALUE;
+        long count = 0;
+        for (int i = 0; i < N; i++) {
+            min = Math.min(min, A[i]);
+            long gap = A[i] - min;
+            if (maxgap == gap) {
+                count++;
+            } else if (maxgap < gap) {
+                maxgap = gap;
+                count = 1;
+            }
+        }
+//        System.out.println(min + " " + maxgap);
+//        long takahashi = (maxgap * T) / 2;
+//        System.out.println(takahashi);
+        System.out.println(count);
+    }
+}

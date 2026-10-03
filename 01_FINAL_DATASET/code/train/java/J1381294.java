@@ -1,0 +1,34 @@
+
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+
+		Scanner sc = new Scanner(System.in);
+
+		double a = sc.nextDouble();
+		double b = sc.nextDouble();
+		double c = sc.nextDouble();
+		double d = sc.nextDouble();
+		double e = b/a;
+		double f = d/c;
+		
+	
+		
+		if (e == f ) {
+			System.out.println("DRAW");
+
+		} else  if (e > f) {
+
+			System.out.println("TAKAHASHI");
+
+		} else  if (e < f)  {
+			System.out.println("AOKI");
+
+	
+		}
+	}
+}

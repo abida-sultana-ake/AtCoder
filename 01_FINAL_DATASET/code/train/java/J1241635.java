@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		long alice = scanner.nextLong(),brown = scanner.nextLong();
+		long ans = Math.abs(alice - brown);
+		if(ans <= 1){
+			System.out.println("Brown");
+		}else{
+			System.out.println("Alice");
+		}
+	}
+
+}

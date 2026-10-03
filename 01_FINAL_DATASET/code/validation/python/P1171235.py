@@ -1,0 +1,1 @@
+print(['D','H'][len(set(input().split()))==1])

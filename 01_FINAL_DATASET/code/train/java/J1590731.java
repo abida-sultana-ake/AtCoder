@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+class Main {
+
+    public static void main(String[] args) {
+        new Main().compute();
+    }
+
+    void compute() {
+        Scanner sc = new Scanner(System.in);
+        int A = sc.nextInt();
+        int B = sc.nextInt();
+        int C = sc.nextInt();
+        for (int i = 1; i <= B; i++) {
+            if ((A * i - C) % B == 0) {
+                System.out.println("YES");
+                return;
+            }
+        }
+        System.out.println("NO");
+    }
+}

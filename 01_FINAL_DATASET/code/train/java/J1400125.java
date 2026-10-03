@@ -1,0 +1,32 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		//BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		//String line = br.readLine();
+		Scanner scan = new Scanner(System.in);
+
+		String str1 = scan.nextLine();
+		String str2 = scan.nextLine();
+
+		String[] ana = new String[4];
+		String[] jal = new String[2];
+
+		ana = str1.split(" ");
+		jal = str2.split(" ");
+
+		int a = Integer.parseInt(ana[0]);
+		int b = Integer.parseInt(ana[1]);
+		int c = Integer.parseInt(ana[2]);
+		int k = Integer.parseInt(ana[3]);
+		int s = Integer.parseInt(jal[0]);
+		int t = Integer.parseInt(jal[1]);
+
+		if(s+t>=k)
+			System.out.println(a*s+b*t-(s+t)*c);
+		else
+			System.out.println(a*s+b*t);
+	}
+}

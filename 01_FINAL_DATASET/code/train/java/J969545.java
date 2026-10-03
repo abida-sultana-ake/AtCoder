@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner foo = new Scanner(System.in);
+		int a = foo.nextInt();
+		int b = foo.nextInt();
+		System.out.println((int)Math.pow(b - 1, a - 1) * b);
+    }
+}

@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class Main {
+	private static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		int n = sc.nextInt();
+		int ret = 0;
+		for (int i = 0;i < n;i++) {
+			ret += sc.nextInt()*sc.nextInt();
+		}
+		System.out.println((int)Math.floor(ret*1.05));
+	}
+}

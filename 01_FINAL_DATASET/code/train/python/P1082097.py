@@ -1,0 +1,10 @@
+
+def solve(x):
+    q = (x - 1) // 11
+    r = (x - 1) % 11
+    if r <= 5:
+        return 2 * q + 1
+    return 2 * q + 2
+
+x = int(input())
+print(solve(x))

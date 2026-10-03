@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+/**
+ *  http://abc069.contest.atcoder.jp/tasks/abc069_b
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		final String s = sc.next();
+		sc.close();
+		
+		String ans = ""+ s.charAt(0) + (s.length()-2) + s.charAt(s.length()-1);
+		
+		System.out.println(ans);
+
+	}
+
+}

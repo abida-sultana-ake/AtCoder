@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+/**
+ * http://abc011.contest.atcoder.jp/tasks/abc011_2
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		final String S = sc.next();
+		sc.close();
+		
+		String prefix = S.substring(0,1).toUpperCase();
+		String suffix = S.substring(1).toLowerCase();
+		
+		System.out.println(prefix + suffix);
+		
+	}
+
+}

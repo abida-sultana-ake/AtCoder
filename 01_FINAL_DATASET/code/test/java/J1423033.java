@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class Main {
+	
+	private void doit(){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			int n = sc.nextInt();
+			int [] data = new int[n];
+			long sum = 0;
+			for(int i = 0; i < n;i++){
+				data[i] = sc.nextInt();
+				sum += data[i];
+			}
+			
+			long [] add = new long[n];
+			add[0] = data[0];
+			for(int i = 1; i < n; i++){
+				add[i] = data[i] + add[i-1];
+			}
+			
+			
+			long min = Long.MAX_VALUE;
+			for(int i = 0; i < n-1; i++){
+				long a = add[i];
+				long b = sum - a;
+				min = Math.min(min, Math.abs(a - b));
+				
+			}
+			System.out.println(min);
+		}
+	}
+
+
+	private void debug(Object... o) {
+		System.out.println("debug = " + Arrays.deepToString(o));
+	}
+
+	public static void main(String[] args) {
+		new Main().doit();
+	}
+
+}

@@ -1,0 +1,1 @@
+print((lambda _: 5 - _ if _ < 5 else 0)(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].index(input())))

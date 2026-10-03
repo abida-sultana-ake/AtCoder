@@ -1,0 +1,12 @@
+def main():
+    cards = [1,2,3,4,5,6]
+    N = int(input())
+
+    for i in range(N % 30):
+        temp = cards[i % 5]
+        cards[i % 5] = cards[i % 5 + 1]
+        cards[i % 5 + 1] = temp
+    print(''.join(map(str, cards)))
+
+if __name__ == '__main__':
+    main()

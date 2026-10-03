@@ -1,0 +1,55 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int M = sc.nextInt();
+		Map<Integer, ArrayList<Integer>> m = new HashMap<Integer, ArrayList<Integer>>();
+		for(int i=0; i<M; i++) {
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			if(m.containsKey(a)) {
+				m.get(a).add(b);
+			} else {
+				ArrayList<Integer> temp = new ArrayList<Integer>();
+				temp.add(b);
+				m.put(a, temp);
+			}
+			if(m.containsKey(b)) {
+				m.get(b).add(a);
+			} else {
+				ArrayList<Integer> temp = new ArrayList<Integer>();
+				temp.add(a);
+				m.put(b, temp);
+			}
+		}
+		sc.close();
+		for(int i=1; i<=N; i++) {
+			if(m.containsKey(i)) {
+				ArrayList<Integer> l = m.get(i);
+				HashSet<Integer> tts = new HashSet<Integer>();
+				for(int j=0; j<l.size(); j++) {
+					int test = l.get(j);
+					ArrayList<Integer> testl = m.get(test);
+					for(int k=0; k<testl.size(); k++) {
+						int tt = testl.get(k);
+						if(tt!=i && !(m.get(i).contains(tt))) {
+							tts.add(tt);
+						}
+					}
+				}
+				System.out.println(tts.size());
+			} else {
+				System.out.println(0);
+			}
+		}
+	}
+
+}

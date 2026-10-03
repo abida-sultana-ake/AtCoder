@@ -1,0 +1,14 @@
+def search(n):
+    for i in range(1,10):
+        for j in range(1,10):
+            if i*j>n:
+                break
+            elif i*j==n:
+                print(i,"x",j)
+                break
+
+
+
+n = 2025 - int(input())
+
+search(n)

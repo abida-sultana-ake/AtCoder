@@ -1,0 +1,1 @@
+print((lambda x:int(x/10)*100+((x%10)*15 if x%10<7 else 100))(int(input())))

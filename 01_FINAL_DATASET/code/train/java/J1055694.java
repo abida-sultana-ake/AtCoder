@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Main {
+	private static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		int k = sc.nextInt();
+		int s = sc.nextInt();
+		int ret = 0;
+
+		for (int i = 0;i <= k;i++) {
+			for (int j = 0;j <= k;j++) {
+				int t = s-i-j;
+				if (0 <= t && t <= k) ret++;
+			}
+		}
+
+		System.out.println(ret);
+	}
+}

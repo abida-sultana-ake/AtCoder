@@ -1,0 +1,23 @@
+n,W = map(int, input().split())
+w = []
+v = []
+for _ in range(n):
+        a, b = map(int, input().split())
+        w.append(a)
+        v.append(b)
+
+dp = {}
+
+def rec(i,j):
+        if i == n:
+                return 0
+        if (i,j) in dp:
+                return dp[i,j]
+        elif j < w[i]:
+                tmp = rec(i + 1, j)
+        else:
+                tmp = max(rec(i + 1, j),rec(i + 1, j - w[i]) + v[i])
+        dp[i,j] = tmp
+        return tmp
+
+print(rec(0, W))

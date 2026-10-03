@@ -1,0 +1,15 @@
+from collections import defaultdict
+import math
+
+
+def main():
+    n = int(input())
+    ans = float("inf")
+    for i in range(1, int(math.sqrt(n)) + 2):
+        if n % i == 0:
+            ans = min(ans, max(len(str(i)), len(str(n // i))))
+    print(ans)
+
+
+if __name__ == '__main__':
+    main()

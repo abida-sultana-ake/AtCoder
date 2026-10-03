@@ -1,0 +1,14 @@
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args){
+		int num = new Scanner(System.in).nextInt();
+		int max = 0;
+		for(int i=1;i<=num;i++){
+			int current_num = i * (num - i); 
+			max = max < current_num?current_num:max;
+		}
+		System.out.println(max);
+	}
+}

@@ -1,0 +1,1 @@
+print(["Bad","Good","Great","Perfect"][(int(input())//10)**2//33])

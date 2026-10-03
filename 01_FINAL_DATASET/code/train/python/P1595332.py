@@ -1,0 +1,15 @@
+from collections import Counter
+
+N = int(input())
+A = []
+
+for _ in range(N):
+    A.append(int(input()))
+
+ans = 0
+counter = Counter(A)
+for _, cnt in counter.most_common():
+    if cnt % 2 == 1:
+        ans += 1
+        
+print(ans)

@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		new Main().solve();
+	}
+	
+	void solve(){
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int[]a=new int[n];
+		for(int i=0;i<n;i++){
+			a[i]=sc.nextInt();
+		}
+		
+		long maxT=-2500;
+		long ans=-2500;
+		for(int i=0;i<n;i++){ //高橋君の決めた場所
+			long maxA=-2500;
+			
+			for(int j=0;j<n;j++){ //青木君の決める場所
+				long sumT=0;
+				long sumA=0;
+				if(i==j)continue;
+				if(i<j){
+					for(int k=i;k<=j;k++){
+						if((k-i+1)%2==0)sumA+=a[k];
+						else sumT+=a[k];
+					}
+				}else if(i>j){
+					for(int k=j;k<=i;k++){
+						if((k-j+1)%2==0)sumA+=a[k];
+						else sumT+=a[k];
+					}
+				}
+				if(maxA<sumA){
+					maxA=sumA;
+					maxT=sumT;
+				}
+			}
+			ans=Math.max(ans, maxT);
+		}
+		System.out.println(ans);
+	}
+}

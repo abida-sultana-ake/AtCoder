@@ -1,0 +1,1 @@
+print((lambda l,m,n,p,q,r: max(int(n/p)*int(m/q)*int(l/r), int(n/p)*int(m/r)*int(l/q), int(n/q)*int(m/p)*int(l/r), int(n/q)*int(m/r)*int(l/p), int(n/r)*int(m/p)*int(l/q), int(n/r)*int(m/q)*int(l/p)))(*[int(_) for _ in input().split()+input().split()]))

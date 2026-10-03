@@ -1,0 +1,15 @@
+import java.util.*;
+public class Main{
+	static Scanner s = new Scanner(System.in);
+	public static void main(String[] args) {
+		int i=s.nextInt();
+		if(i<60)
+			System.out.println("Bad");
+		else if(i<90)
+			System.out.println("Good");
+		else if(i<100)
+			System.out.println("Great");
+		else
+			System.out.println("Perfect");
+	}
+}

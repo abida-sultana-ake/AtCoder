@@ -1,0 +1,1 @@
+print((lambda a: a[2]//min(a[0], a[1]))([int(i) for i in input().split()]))

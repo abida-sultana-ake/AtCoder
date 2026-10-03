@@ -1,0 +1,7 @@
+def main():
+    N = int(input())
+
+    ans = round(N / 2 + 0.1)
+    print(ans)
+
+main()

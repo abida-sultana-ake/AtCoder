@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Main {
+    //-------------------------------------------------------------//
+    public static final void main(String[] args) {
+        new Main().solve();
+    }
+    //-------------------------------------------------------------//
+    private final Scanner sc = new Scanner(System.in);
+
+    void solve() {
+        sc.next();
+        String s = sc.next();
+        int l = 0;
+        int r = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') l++;
+            else r++;
+            if (r > l) {
+                s = "(" + s;
+                i++;
+                l++;
+            }
+        }
+        l = r = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ')') r++;
+            else l++;
+            if (l > r) {
+                s = s + ")";
+                r++;
+            }
+        }
+        System.out.println(s);
+    }
+}

@@ -1,0 +1,11 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int Q = sc.nextInt();
+    String ans = "ABC";
+    if(Q == 2) ans = "chokudai";
+    System.out.println(ans);
+  }
+}

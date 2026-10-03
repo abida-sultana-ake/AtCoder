@@ -1,0 +1,67 @@
+import java.util.*;
+
+public class Main {
+	static final long MOD = 1000000007;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int N = sc.nextInt();
+		int A = sc.nextInt();
+		int B = sc.nextInt();
+		int C = sc.nextInt();
+		int D = sc.nextInt();
+		
+		long[][] comb = new long[N+1][N+1];
+		for(int i=0; i<N+1; i++)
+			for(int j=0; j<=i; j++)
+				comb[i][j] = (j==0 || j==i) ? 1 : (comb[i-1][j] + comb[i-1][j-1])%MOD;
+		
+		long[] fac = new long[N+1];
+		fac[0] = fac[1] = 1;
+		for(int i=2; i<=N; i++)
+			fac[i] = (fac[i-1]*i)%MOD;
+		
+		long[][] dp = new long[2][N+1];
+		int sw = 0;
+		dp[sw][0] = 1;
+		for(int i=A; i<=B; i++) {
+			Arrays.fill(dp[sw^1], 0);
+			
+			for(int j=0; j<=N; j++) {
+				dp[sw^1][j] = (dp[sw^1][j] + dp[sw][j])%MOD;
+				if(j<=N-C*i) {
+					long sel = 1;
+					for(int k=1; k<=D; k++) {
+						if(j+i*k <= N) {
+							sel = (sel * comb[N-(j+(k-1)*i)][i])%MOD;
+							if(C<=k) {
+								dp[sw^1][j+i*k] = (dp[sw^1][j+i*k] + ((dp[sw][j]*sel)%MOD)*rev(fac[k]))%MOD;
+							}
+						} else {
+							break;
+						}
+					}
+				}
+			}
+			sw ^= 1;
+		}
+		
+		System.out.println(dp[sw][N]);
+		sc.close();
+	}
+	
+	static long rev(long a) {
+		return pow(a, MOD-2);
+	}
+	
+	static long pow(long a, long b) {
+		long ans = 1;
+		while(b>0) {
+			if((b&1)!=0)
+				ans = (ans * a)%MOD;
+			b>>=1;
+			a = (a*a)%MOD;
+		}
+		return ans;
+	}
+}

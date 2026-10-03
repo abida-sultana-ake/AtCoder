@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+
+def main():
+    X = int(input())
+    for i in range(0, X + 1):
+        if (1 + i) * i // 2 >= X:
+            print(i)
+            return
+    print(X)
+
+
+if __name__ == '__main__':
+    main()

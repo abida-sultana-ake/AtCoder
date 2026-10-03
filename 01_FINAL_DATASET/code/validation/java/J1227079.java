@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int scoreA[] = new int[3]; 
+		double scoreB[] = new double[3];
+		int sum = 0;
+		
+		for(int j = 0; j < 3; j++){
+			scoreA[j] = sc.nextInt();
+			scoreB[j] = sc.nextInt();
+			sum += (scoreA[j] * scoreB[j] /10);
+		}
+		System.out.println(sum);
+	}
+}

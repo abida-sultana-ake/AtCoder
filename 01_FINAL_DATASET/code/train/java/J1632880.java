@@ -1,0 +1,18 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n, m;
+		n = sc.nextInt(); m = sc.nextInt();
+		sc.close();
+		n = n%12;
+		double hdeg = 30.0*n + 0.50*m;
+		double mdeg = 6.0*m;
+		double deg = Math.abs(hdeg-mdeg);
+		System.out.println(Math.min(deg, 360-deg));
+	}
+
+}

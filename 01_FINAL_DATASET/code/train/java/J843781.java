@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int i, o, m = Integer.MAX_VALUE;
+        int s = 0, te = 0;
+        ArrayList<Integer> t = new ArrayList<Integer>();
+        ArrayList<Integer> al = new ArrayList<Integer>();
+        for (i = 0; i < n; i++) {
+            te = sc.nextInt();
+            al.add(te);
+            s += te;
+        }
+        s = Math.round(s/n);
+        t.add(f(s, al));
+        t.add(f(s-1, al));
+        t.add(f(s+1, al));
+        for (i = 0; i < 3; i++) {
+            int a = t.get(i);
+            if (m > a) m = a;
+        }
+        System.out.println(m);
+    }
+    private static int f(int s, ArrayList<Integer> al) {
+        int te = 0, re = 0, i;
+        for (i = 0; i < al.size(); i++) {
+            te = al.get(i);
+            if (te == s) continue;
+            re += (te-s)*(te-s);
+        }
+        return re;
+    }
+}

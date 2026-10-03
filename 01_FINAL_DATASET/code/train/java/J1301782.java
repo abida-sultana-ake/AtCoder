@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		String[] S = new String[n];
+		int[] P = new int[n];
+		for(int i = 0 ; i < n ; i++) {
+			S[i] = sc.next();
+			P[i] = sc.nextInt();
+		}
+		int total = 0;
+		String toshi = "atcoder";
+
+		for(int i = 0 ; i < n ; i++) {
+			total = total + P[i];
+		}
+		for(int i = 0 ; i < n ; i++) {
+			if(total / 2 < P[i]) {
+				toshi = S[i];
+				break;
+			}
+		}
+		System.out.println(toshi);
+	}
+}

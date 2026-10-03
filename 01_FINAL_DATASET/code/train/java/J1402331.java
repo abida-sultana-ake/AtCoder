@@ -1,0 +1,16 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		long min = n;
+		for(int i = 1; i < n+141; i++){
+			int j = n/i;
+			min = Math.min(min, n - (i * j) + Math.abs(i -j));
+		}
+		System.out.println(min);
+	}
+}

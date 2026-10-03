@@ -1,0 +1,1 @@
+v=sum(map(ord,input()))-128;print([v,'error'][9<v])

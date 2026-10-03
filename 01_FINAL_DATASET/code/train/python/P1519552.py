@@ -1,0 +1,24 @@
+from collections import defaultdict
+from itertools import product
+
+
+def solve(N):
+    ans = 0
+    for x in range(1, len(str(N)) + 1):
+        left, right = N // (10 ** x), 0
+        if int(str(N)[-x]) == 0:
+            pass
+        elif int(str(N)[-x]) == 1:
+            right = N % (10 ** (x - 1)) + 1
+        else:
+            left += 1
+        ans += left * (10 ** (x - 1)) + right
+    return ans
+
+
+def main():
+    N = int(input())
+    print(solve(N))
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,5 @@
+str = raw_input().split()
+x = float(str[0])
+y = float(str[1])
+ans = int(y / x)
+print(ans)

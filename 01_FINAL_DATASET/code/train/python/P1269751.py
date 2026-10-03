@@ -1,0 +1,5 @@
+def main():
+    W = str(input())
+    print(W + 's')
+
+main()

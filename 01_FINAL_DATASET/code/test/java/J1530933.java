@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		ArrayList<Integer> t = new ArrayList<Integer>();
+		for(int i=0; i<n; i++){
+			t.add(sc.nextInt());
+		}
+ 		Collections.sort(t);
+		System.out.println(t.get(0));
+		sc.close();
+	}
+}

@@ -1,0 +1,60 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+/**
+ *
+ * @author Node2
+ */
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String str = in.readLine();
+        
+     
+        
+        String[] sp = str.split(" ");
+        int[] a = new int[sp.length];
+        for(int i=0;i<sp.length;i++){
+            a[i] = Integer.parseInt(sp[i]);
+        }
+        int num = a[0];
+        int length = a[1];
+      
+        str = in.readLine();
+        String[] sp2 = str.split(" ");
+        int[] a2 = new int[sp2.length];
+        for(int i=0;i<sp2.length;i++){
+            a2[i] = Integer.parseInt(sp2[i]);
+        }
+        
+        int anser = 0;
+       
+        while(true){
+             boolean flug = true;
+            String str2 = String.valueOf(anser);
+            for(int k=0;k<str2.length();k++){
+                int n = Character.digit(str2.charAt(k),10);
+                for(int j=0;j<a2.length;j++){
+                    if(n==a2[j]){
+                        flug = false;
+                        break;
+                    }
+                }
+            }
+
+            if(flug && num <= anser){
+                break;
+            }
+            anser++;
+          
+        }
+        
+        System.out.println(anser);
+    }
+}

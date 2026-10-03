@@ -1,0 +1,31 @@
+R,G,B=map(int,input().split())
+INF = 1001001001
+
+def f(p, a, b, n):
+  if b - a + 1 < n:
+    return INF
+  if b < p:
+    return f(b, a, b, n) + (p-b)*n
+  if p < a:
+    return f(a, a, b, n) + (a-p)*n
+  a -= p
+  b -= p
+  m = min(abs(a),abs(b))
+  res = 0
+  n -= 1
+  n2 = min(n, m*2)
+  if n2 > 0:
+    n -= n2
+    res += (n2//2)*(n2//2+1)
+    if n2 % 2==1: res += (n2+1)//2
+  if n > 0:
+    res += (2*m+n+1)*n//2
+  return res
+
+ans = INF
+for i in range(-400, 60):
+  for j in range(i, i+G+1):
+    cur = f(-100, -10000, i-1, R) + f(0, i, j, G) + f(100, j+1, 10000, B)
+    if ans > cur:
+      ans = cur
+print(ans)

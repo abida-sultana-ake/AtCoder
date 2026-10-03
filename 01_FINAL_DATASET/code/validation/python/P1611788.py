@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+
+
+def main():
+    A, B = map(int, input().split())
+
+    if A == B:
+        print(0)
+        return
+
+    if A > B:
+        A, B = B, A
+
+    ans = 0
+    while A + 10 <= B:
+        A += 10
+        ans += 1
+
+    d = B - A
+    if d <= 2:
+        ans += d
+    elif 3 <= d <= 7:
+        ans += 1 + abs(d-5)
+    else:
+        ans += 1 + abs(d-10)
+
+    print(ans)
+
+if __name__ == "__main__": main()

@@ -1,0 +1,9 @@
+import re
+
+def main():
+    W = str(input())
+
+    ans = re.sub(r'[aiueo]', '', W)
+    print(ans)
+
+main()

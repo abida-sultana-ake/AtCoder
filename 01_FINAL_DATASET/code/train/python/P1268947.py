@@ -1,0 +1,18 @@
+N = int(input())
+B = [int(input()) for _ in range(N - 1)]
+
+
+def score(n):
+    _max = 1
+    _min = 1e10
+    for i in range(N-1):
+        if B[i] == n:
+            bi_score = score(i + 2)
+            _max = max(_max, bi_score)
+            _min = min(_min, bi_score)
+
+    if _min == 1e10:
+        return 1
+    return _max + _min + 1
+
+print(score(1))

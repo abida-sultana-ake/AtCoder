@@ -1,0 +1,9 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String X = sc.next();
+        System.out.println(Character.getNumericValue(X.charAt(0)) - Character.getNumericValue('a') + 1);
+    }
+}

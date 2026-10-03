@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+	void run() {
+		Scanner sc = new Scanner(System.in);
+
+		char[] c = sc.next().toCharArray();
+		boolean f1 = c.length % 2 == 0 ? true : false;
+		boolean f2 = c[0] != c[c.length - 1] ? true : false;
+
+		if (f1 != f2) {
+			System.out.println("First");
+		} else {
+			System.out.println("Second");
+		}
+	}
+
+	public static void main(String[] args) {
+		new Main().run();
+	}
+}

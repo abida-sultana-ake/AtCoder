@@ -1,0 +1,15 @@
+import java.util.*;
+
+public class Main {
+	static final Scanner s = new Scanner(System.in);
+	public static void main(String args[]){
+		int n=s.nextInt(),k=s.nextInt(),in[]=new int[n];
+		for(int i=0;i<n;i++) in[i]=s.nextInt();
+
+		Arrays.sort(in);
+		double rate=0;
+		for(int i=n-k;i<n;i++)
+			rate=(rate+in[i])/2;
+		System.out.printf("%.15f\n",rate);
+	}
+}

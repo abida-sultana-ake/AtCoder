@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String S = sc.next();
+    int count = 0;
+    String[] block = S.split("[+]");
+    for(int i = 0; i<block.length; i++) {
+      if(block[i].contains("0")) {
+        count += 1;
+      }
+    }
+    System.out.println(block.length - count);
+  }
+}

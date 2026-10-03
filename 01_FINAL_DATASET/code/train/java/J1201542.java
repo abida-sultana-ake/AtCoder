@@ -1,0 +1,30 @@
+import java.util.*;
+ 
+// ABC 6-C
+// http://abc006.contest.atcoder.jp/tasks/abc006_3
+ 
+public class Main {
+	
+	public static void main (String[] args) throws java.lang.Exception {
+	    Scanner in = new Scanner(System.in);
+
+	    int n = in.nextInt();
+	    int start = in.nextInt();
+	    int end = in.nextInt();
+	    
+	    int k = in.nextInt();
+	    boolean answer = true;
+	    ArrayList<Integer> arr = new ArrayList<Integer>();
+	    
+	    for (int i = 0; i < k; i++) {
+	    	int x = in.nextInt();
+	    	if (arr.contains(x) || x == start || x == end) {
+	    		answer = false;
+	    	} else {
+	    		arr.add(x);
+	    	}
+	    }
+	    
+	    System.out.println(answer ? "YES": "NO");
+	}
+}

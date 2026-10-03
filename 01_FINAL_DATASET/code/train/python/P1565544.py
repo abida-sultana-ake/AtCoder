@@ -1,0 +1,16 @@
+def main():
+    N = int(input())
+    A = list(map(int, input().split()))
+    res = 0
+    i = 0
+    while i < N:
+        if A[i] == i + 1:
+            res += 1
+            i += 2
+        else:
+            i += 1
+    print(res)
+
+if __name__ == '__main__':
+    main()
+

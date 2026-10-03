@@ -1,0 +1,41 @@
+import java.util.*;
+
+/**
+ * Created by zaraki on 2017/08/27.
+ */
+public class Main {
+    private static int n;
+    private static ArrayList<Integer> arrayList = new ArrayList<>();
+
+    public static void input(){
+        Scanner scan = new Scanner(System.in);
+        n = scan.nextInt();
+        String str = scan.next();
+
+        int count[] = {0,0,0,0};
+
+        for(int i = 0; i< n; i++) {
+            int ans = Character.getNumericValue(str.charAt(i));
+            switch (ans){
+                case 1:count[0]++;break;
+                case 2:count[1]++;break;
+                case 3:count[2]++;break;
+                case 4:count[3]++;break;
+                default:break;
+            }
+        }
+
+        int max = 0, min = 1000000000;
+        for (int i = 0;i < 4;i++){
+            max = Math.max(max , count[i]);
+            min = Math.min(min , count[i]);
+        }
+        System.out.println(max + " "+ min);
+    }
+
+    public static void main(String args[]) {
+        //入力
+        input();
+
+    }
+}

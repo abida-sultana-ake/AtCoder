@@ -1,0 +1,11 @@
+def solve(R, B, x, y):
+    if R < x and B < y or R == 0 or B == 0:
+        return 0
+    else:
+        n = min((R - min(B//y, R) + 1) // x, B)
+        return n + solve(B-n, R-x*n, y, x)
+
+R, B = map(int, input().split())
+x, y = map(int, input().split())
+
+print(solve(R, B, x, y))

@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+
+public class Main 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		String N = sc.next();
+		sc.close();
+		
+		int result = N.indexOf("9");
+		
+		if(result==-1)
+		{
+			System.out.println("No");
+		}
+		else
+		{
+			System.out.println("Yes");
+		}
+
+	}
+
+}

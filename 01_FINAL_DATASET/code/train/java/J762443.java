@@ -1,0 +1,10 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] argv) {
+	Scanner cin = new Scanner(System.in);
+	int X = cin.nextInt();
+	int N = 0;
+	for ( ; N*N*N*N<X; N++);
+	System.out.println(N);
+    }
+}

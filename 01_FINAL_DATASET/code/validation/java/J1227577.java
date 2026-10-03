@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		Scanner scan = new Scanner(System.in);
+		int N =scan.nextInt();
+		int[] c = new int[N];
+		int[] sort = new int[N];
+
+		for(int i =0;i<N;i++){
+			c[i]=scan.nextInt();
+		}
+
+		int max = -1;
+		int Max = 0;
+
+		for(int i=N-2;i>=0;i--){
+			for(int j=i+1;j<N;j++){
+				if(c[i]<c[j]&&sort[j]>max){
+					max = sort[j];
+				}
+			}
+			sort[i]=max+1;
+			if(sort[i]>Max){
+				Max=sort[i];
+			}
+			max = -1;
+		}
+
+
+		System.out.println(N-Max-1);
+
+	}
+
+}

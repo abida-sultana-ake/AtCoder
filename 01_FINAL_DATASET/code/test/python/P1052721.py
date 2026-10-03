@@ -1,0 +1,13 @@
+def main():
+    N, K = map(int, input().split())
+    a = list(map(int, input().split()))
+    t = sum(a[0:K])
+    ans = t
+    for i in range(K, N):
+        t -= a[i-K]
+        t += a[i]
+        ans += t
+    print(ans)
+
+if __name__ == '__main__':
+    main()

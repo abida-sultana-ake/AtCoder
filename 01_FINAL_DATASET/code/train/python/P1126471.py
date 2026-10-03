@@ -1,0 +1,31 @@
+import sys
+from itertools import product
+
+def debug(x, table):
+    for name, val in table.items():
+        if x is val:
+            print('DEBUG:{} -> {}'.format(name, val), file=sys.stderr)
+            return None
+
+def solve():
+    N = int(input())
+    S = [0 if i == 'o' else 1 for i in input()]
+    
+    for i, j in product(range(2), repeat=2):
+        pat = [i, j] + [0]*(N - 2)
+        for k in range(2, N):
+            pat[k] = (S[k - 1] - (pat[k - 1] + pat[k - 2])) % 2
+
+        if S[-1] != (pat[0] + pat[-1] + pat[-2]) % 2:
+            continue
+        if S[0] != (pat[1] + pat[0] + pat[-1]) % 2:
+            continue
+
+        ans = ['S' if pat[k] == 0 else 'W' for k in range(N)]
+        print(''.join(ans))
+        return None
+
+    print(-1)
+
+if __name__ == '__main__':
+    solve()

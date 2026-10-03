@@ -1,0 +1,13 @@
+def main():
+    N = input()
+    ls = input().split()
+    dic = {}
+    for i,a in enumerate(ls):
+        dic[i+1] = int(a)
+
+    for k, v in sorted(dic.items(), key=lambda x:x[1], reverse=True):
+        print(k)
+
+
+if __name__ == "__main__":
+    main()

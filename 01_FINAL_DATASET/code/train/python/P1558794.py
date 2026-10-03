@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+def main():
+    N = int(input())
+    A = [int(x) for x in input().split()]
+    c = defaultdict(int)
+    for i in A:
+        c[i] += 1
+        c[i - 1] += 1
+        c[i + 1] += 1
+    print(sorted(c.items(), key=lambda x: x[1], reverse=True)[0][1])
+
+if __name__ == '__main__':
+    main()

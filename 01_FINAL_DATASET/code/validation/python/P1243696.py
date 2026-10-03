@@ -1,0 +1,7 @@
+def main():
+    X = str(input())
+
+    ans = 'ABCDE'.index(X) + 1
+    print(ans)
+
+main()

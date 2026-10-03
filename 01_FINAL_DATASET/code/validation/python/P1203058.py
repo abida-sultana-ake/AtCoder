@@ -1,0 +1,20 @@
+
+def solve():
+    W, H = map(int, input().split())
+    mod = 10**9 + 7
+
+    num = denom = 1
+    N = W - 1 + H - 1
+    K = W - 1
+
+    for i in range(K):
+        num = (num * (N - i)) % mod
+        denom = (denom * (K - i)) % mod
+
+    ans = num * pow(denom, mod - 2, mod)
+    ans %= mod
+
+    print(ans)
+
+if __name__ == '__main__':
+    solve()

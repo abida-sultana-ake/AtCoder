@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		new Main().solve();
+	}
+	
+	void solve() {
+		Scanner sc=new Scanner(System.in);
+		String s=sc.next();
+		s=s.replaceAll("ch", "");
+		s=s.replaceAll("o", "");
+		s=s.replaceAll("k", "");
+		s=s.replaceAll("u", "");
+		String ans="";
+		if(s.length()>0)ans="NO";
+		else ans="YES";
+		System.out.println(ans);
+	}
+}

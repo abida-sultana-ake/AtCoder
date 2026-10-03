@@ -1,0 +1,13 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main{
+    public static void main (String[] args) throws java.lang.Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String line = br.readLine();
+        int N = Integer.parseInt(line);
+        int ans = N*800 - (N/15)*200;
+        System.out.println(ans);
+    }
+}

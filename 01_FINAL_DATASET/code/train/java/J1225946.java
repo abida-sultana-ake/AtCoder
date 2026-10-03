@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int W = sc.nextInt();
+    int N = sc.nextInt();
+    int K = sc.nextInt();
+    int[] a = new int[N];
+    int[] b = new int[N];
+    for(int i = 0; i < N; i++) {
+      a[i] = sc.nextInt();
+      b[i] = sc.nextInt();
+    }
+    // dp[i][j][k]はスクリーンショット0～iの中からk枚以下で幅の和がj以下となるように選ぶときの、重要度の和の最大値を表す。
+    int[][][] dp = new int[N][W + 1][K + 1];
+    for(int j = 0; j < W + 1; j++) {
+      for(int k = 1; k < K + 1; k++) {
+        if(j >= a[0]) dp[0][j][k] = b[0];
+      }
+    }
+    for(int i = 1; i < N; i++) {
+      for(int j = 0; j < W + 1; j++) {
+        for(int k = 1; k < K + 1; k++) {
+          if(j >= a[i]) {
+            dp[i][j][k] = Math.max(dp[i - 1][j][k], b[i] + dp[i - 1][j - a[i]][k - 1]);
+          } else {
+            dp[i][j][k] = dp[i - 1][j][k]; 
+          }
+        }
+      }
+    }
+    System.out.println(dp[N - 1][W][K]);
+  }
+}

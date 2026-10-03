@@ -1,0 +1,5 @@
+def main():
+    n=set(list(input()))
+    print("SAME" if len(n)==1 else "DIFFERENT")
+if __name__ == "__main__":
+    main()

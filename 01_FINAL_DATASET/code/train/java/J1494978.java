@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+/**
+ * http://abc024.contest.atcoder.jp/tasks/abc024_a
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		final int A = sc.nextInt();
+		final int B = sc.nextInt();
+		final int C = sc.nextInt();
+		final int K = sc.nextInt();
+		final int S = sc.nextInt();
+		final int T = sc.nextInt();
+		sc.close();
+		
+		int ans = A*S+T*B;
+		if(T+S>=K) ans-= C*(T+S);
+		
+		System.out.println(ans);
+
+	}
+
+}

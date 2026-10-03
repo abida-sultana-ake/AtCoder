@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt(),b = scanner.nextInt(),c = scanner.nextInt(),d = scanner.nextInt();
+		int max = Math.max(a, c);
+		int min = Math.min(b, d);
+		int result = Math.max(0, min-max);
+		System.out.println(result);
+	}
+
+}

@@ -1,0 +1,23 @@
+import sys, array, math, re, functools
+input = lambda: sys.stdin.readline()
+@functools.lru_cache(maxsize = 10000)
+
+def Main():
+  W, a, b = map(int ,input().split())
+  A = a + W
+  B = b + W
+  if b <= A <= b+W:
+    print(0)
+  elif a <= B <= a+W:
+    print(0)
+  elif A < b:
+    print(b - A)
+  elif B < a:
+    print(a - B)
+  elif A > b:
+    print(abs(a - b))
+  elif B > a:
+    print(abs(b - a))
+    
+if __name__ == '__main__':
+  Main()

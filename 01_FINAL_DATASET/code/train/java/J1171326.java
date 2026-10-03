@@ -1,0 +1,20 @@
+import java.util.*;
+
+// UVa 11504
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+
+		int x = in.nextInt();
+		int sum = 0;
+		int t = 0;
+		
+		while (sum < x) {
+			sum += t;
+			t++;
+		}
+		System.out.println(t - 1);
+	}
+}

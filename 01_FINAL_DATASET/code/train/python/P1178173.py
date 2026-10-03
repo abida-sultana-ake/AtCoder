@@ -1,0 +1,5 @@
+input_line = input()
+input_line=input_line.replace("Left","<")
+input_line=input_line.replace("Right",">")
+input_line=input_line.replace("AtCoder","A")
+print(input_line)

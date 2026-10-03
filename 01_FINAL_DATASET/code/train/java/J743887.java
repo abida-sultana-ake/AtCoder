@@ -1,0 +1,10 @@
+import java.util.Scanner;
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner s = new Scanner(System.in);
+    String drink = s.next();
+    System.out.println( drink.endsWith("T") ? "YES" : "NO");
+  }
+
+}

@@ -1,0 +1,26 @@
+import itertools
+N = int(input())
+s = list(map(lambda x: True if x == "o" else False, list(input())))
+
+f = lambda x,y: not(x^y)
+
+def hantei(N,s):
+    for onetwo in itertools.product((True, False), (True, False)):
+        res = {}
+        for n in range(N):
+            if n == 0:
+                res[n] = onetwo[0]
+            elif n == 1:
+                res[n] = onetwo[1]
+            else:
+                res[n] = f(res[n-2], f(res[n-1], s[n-1]))
+        # check s[0]
+        if not ((res[1] == res[N-1]) ^ res[0]) == s[0]:
+            if not ((res[0] == res[N-2]) ^ res[N-1]) == s[N-1]:
+                print(''.join(map(lambda x: "S" if x == True else "W", res.values())))
+                return True
+
+    return False
+
+if not hantei(N, s):
+    print(-1)

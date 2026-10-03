@@ -1,0 +1,20 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		long x = sc.nextLong();
+		long y = sc.nextLong();
+		
+		if(Math.abs(x - y) < 2){
+			System.out.println("Brown");
+		}
+		else{
+			System.out.println("Alice");
+		}
+		
+		sc.close();
+	}
+}

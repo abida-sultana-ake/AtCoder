@@ -1,0 +1,13 @@
+s = input()
+def solve(s):
+    head = s[0]
+    tail = s[-1]
+    len_s = len(s)
+    res = len_s -2
+    if head == tail:
+        res -= 1
+    for c in s[1:-1]:
+        if c != head and c != tail:
+            return res%2 == 1 
+    return False
+print('First' if solve(s) else 'Second')

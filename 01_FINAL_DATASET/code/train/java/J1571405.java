@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String N = scanner.next();
+        System.out.print(N.charAt(0));
+        System.out.print(N.length() - 2);
+        System.out.println(N.charAt(N.length() - 1));
+    }
+}

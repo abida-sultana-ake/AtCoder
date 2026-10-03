@@ -1,0 +1,45 @@
+{
+    "generated_at": "2026-10-03T17:13:19",
+    "database": "D:\\Dataset\\AtCoder_Raw\\java-python-clones.db",
+    "output_directory": "D:\\Dataset\\Capstone_B_Dataset",
+    "random_seed": 42,
+    "problem_split_seed": 42,
+    "total_pairs": 6000,
+    "pair_types": {
+        "java-python": {
+            "total": 2000,
+            "positive": 1000,
+            "negative": 1000
+        },
+        "python-python": {
+            "total": 2000,
+            "positive": 1000,
+            "negative": 1000
+        },
+        "java-java": {
+            "total": 2000,
+            "positive": 1000,
+            "negative": 1000
+        }
+    },
+    "splits": {
+        "train": 4200,
+        "validation": 900,
+        "test": 900
+    },
+    "problem_group_key": [
+        "contest_type",
+        "contest_id",
+        "problem_id"
+    ],
+    "problem_level_split": true,
+    "global_exact_source_deduplication": true,
+    "exact_duplicate_sources_removed": 799,
+    "split_problem_group_counts": {
+        "train": 401,
+        "validation": 86,
+        "test": 87
+    },
+    "positive_definition": "Two submissions from the same (contest_type, contest_id, problem_id) problem group.",
+    "negative_definition": "Two submissions from different problem groups."
+}

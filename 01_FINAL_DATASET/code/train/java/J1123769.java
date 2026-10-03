@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Main {
+	private static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		int xa = sc.nextInt();
+		int ya = sc.nextInt();
+		int xb = sc.nextInt() - xa;
+		int yb = sc.nextInt() - ya;
+		int xc = sc.nextInt() - xa;
+		int yc = sc.nextInt() - ya;
+		xa = 0;
+		ya = 0;
+
+		System.out.println((float)Math.abs(xb*yc-yb*xc)/2);
+	}
+}

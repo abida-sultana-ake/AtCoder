@@ -1,0 +1,12 @@
+import java.util.*;
+public class Main{
+public static void main(String[] args){
+Scanner sc=new Scanner(System.in);
+long x=sc.nextLong();
+long ans=2l*(long)(x/11l);
+if(2l*x-11l*ans>12l)ans++;
+if(2l*x==11l*ans)ans--;
+ans++;
+System.out.println(ans);
+}
+}

@@ -1,0 +1,13 @@
+
+def main():
+    s = input().strip()
+    l = len(s)
+    if s[0] == s[-1]:
+        l += 1
+    if l % 2 == 0:
+        print("Second")
+    else:
+        print("First")
+
+if __name__ == '__main__':
+    main()

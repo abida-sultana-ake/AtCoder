@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+/**
+ * Created by ryosuke on 2017/03/29.
+ */
+public class Main {
+    public static void main(String[] arg) {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        int year = Integer.valueOf(input);
+
+        if (year % 400 == 0) {
+            System.out.println("YES");
+            return;
+        } else if (year % 100 == 0) {
+            System.out.println("NO");
+            return;
+        } else if (year % 4 == 0) {
+            System.out.println("YES");
+            return;
+        }
+        System.out.println("NO");
+    }
+}

@@ -1,0 +1,10 @@
+import java.util.*;
+public class Main{
+public static void main(String[] args){
+Scanner x= new Scanner(System.in);
+int num = x.nextInt();
+
+System.out.println((1+num)*num/2);
+
+}
+}

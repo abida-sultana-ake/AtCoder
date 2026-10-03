@@ -1,0 +1,1 @@
+print( (lambda n,m: n if n!=m else n-1)(*[int(_) for _ in input().split()]) )

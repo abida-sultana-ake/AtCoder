@@ -1,0 +1,11 @@
+
+def penki(a, b, c):
+  if a==b and b==c:
+    return 1
+  elif a!=b and b!=c and c!=a:
+    return 3
+  else:
+    return 2
+
+a,b,c=map(int, input().split())
+print(penki(a, b, c))

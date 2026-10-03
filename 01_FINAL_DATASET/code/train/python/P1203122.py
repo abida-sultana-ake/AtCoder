@@ -1,0 +1,11 @@
+def solve():
+    a = int(input())
+    ans = 0
+
+    for i in range(1, a + 1):
+        ans = max(ans, i * (a - i))
+
+    print(ans)
+
+if __name__ == '__main__':
+    solve()

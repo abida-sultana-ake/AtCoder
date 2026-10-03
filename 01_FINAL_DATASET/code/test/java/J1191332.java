@@ -1,0 +1,19 @@
+
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int L = sc.nextInt();
+		int H = sc.nextInt();
+		int N = sc.nextInt();
+		for(int i=0; i<N; i++){
+			int A = sc.nextInt();
+			if(A < L) System.out.println(L-A);
+			else if(A >= L && A <= H) System.out.println("0");
+			else if(A > H) System.out.println("-1");
+		}
+	}
+
+}

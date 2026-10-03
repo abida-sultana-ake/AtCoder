@@ -1,0 +1,27 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		int max = 0;
+		int count = 0;
+		String name = "atcoder";
+		for(int i = 0; i < n; i++){
+			String s = scanner.next();
+			int p = scanner.nextInt();
+			count += p;
+			if(p > max){
+				max = p;
+				name = s;
+			}
+		}
+		if(count/2 < max){
+			System.out.println(name);
+		}else {
+			System.out.println("atcoder");
+		}
+	}
+}

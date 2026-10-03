@@ -1,0 +1,15 @@
+s = input()
+
+
+def main(s):
+    prev, s = s[0], s
+    count = 0
+    for c in s:
+        if c != prev:
+            count += 1
+            prev = c
+    return count
+
+
+
+print(main(s))

@@ -1,0 +1,20 @@
+from collections import defaultdict
+
+
+def solve(s):
+    if s[0] == s[-1]:
+        if len(s) % 2 == 0:
+            return "First"
+        return "Second"
+    else:
+        if len(s) % 2 == 0:
+            return "Second"
+        return "First"
+
+
+def main():
+    s = input()
+    print(solve(s))
+
+if __name__ == '__main__':
+    main()

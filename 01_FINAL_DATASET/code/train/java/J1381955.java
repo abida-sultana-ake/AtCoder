@@ -1,0 +1,21 @@
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Main
+{
+	public static void main(String args[])
+	{
+		int n;
+		Scanner sc = new Scanner(System.in);
+
+		try
+		{
+			n = sc.nextInt();
+			System.out.println(2 * n);
+		}
+		catch(InputMismatchException ime)
+		{
+			System.out.println("Format Error : " + ime);
+		}
+	}
+}

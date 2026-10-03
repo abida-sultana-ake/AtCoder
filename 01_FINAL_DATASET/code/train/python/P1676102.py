@@ -1,0 +1,10 @@
+n=int(input())
+
+def f(n,s):
+    moji=["a","b","c"]
+    if(n==0):
+        print(s)
+    else:
+        for i in range(3):
+             f(n-1,s+moji[i])
+f(n,"")

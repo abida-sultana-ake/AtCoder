@@ -1,0 +1,23 @@
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader input =new BufferedReader (new InputStreamReader (System.in));
+		String str = input.readLine( );
+		String[] list = str.split("");
+		str = input.readLine( );
+		int n = Integer.parseInt(str);
+		if(n%5==0){
+			System.out.print(list[(n/5)-1]);
+			System.out.println(list[4]);
+		}else{
+			System.out.print(list[(n/5)]);
+			System.out.println(list[(n%5)-1]);
+		}
+	}
+
+}

@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		HashMap<String, Integer> m = new HashMap<String, Integer>();
+		int sum = 0;
+		for(int i=0; i<N; i++) {
+			String s = sc.next();
+			int p = sc.nextInt();
+			m.put(s, p);
+			sum += p;
+		}
+		String ans = "atcoder";
+		for(Map.Entry<String, Integer> ent : m.entrySet()) {
+			if(ent.getValue() > sum/2) {
+				ans = ent.getKey();
+				break;
+			}
+		}
+//		System.out.println(m.toString());
+		System.out.println(ans);
+	}
+
+}

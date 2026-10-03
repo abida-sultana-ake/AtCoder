@@ -1,0 +1,43 @@
+import sys
+
+def solve():
+    N = int(input())
+    a = [int(i) for i in input().split()]
+    asum = sum(a)
+
+    if asum % N:
+        print(-1)
+        return
+
+    np = asum // N
+
+    l = 0
+    r = 0
+    ans = 0
+    v = 0
+
+    while r < N:
+        if l == r:
+            v += a[l]
+            r += 1
+        else:
+            if v != (r - l) * np:
+                v += a[r]
+                r += 1
+            else:
+                ans += r - l - 1
+                v = 0
+                l = r
+
+    ans += (r - l - 1)
+
+    print(ans)
+
+def debug(x, table):
+    for name, val in table.items():
+        if x is val:
+            print('DEBUG:{} -> {}'.format(name, val), file=sys.stderr)
+            return None
+
+if __name__ == '__main__':
+    solve()

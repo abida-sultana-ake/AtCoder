@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+class Main {
+
+    public static void main(String[] args) {
+        new Main().compute();
+    }
+
+    void compute() {
+        Scanner sc = new Scanner(System.in);
+        String s1 = sc.next();
+        String s2 = sc.next();
+        String s3 = sc.next();
+        System.out.println(String.valueOf(s1.toUpperCase().charAt(0)) + String.valueOf(s2.toUpperCase().charAt(0)) + String.valueOf(s3.toUpperCase().charAt(0)));
+    }
+}

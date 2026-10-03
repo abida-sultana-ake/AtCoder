@@ -1,0 +1,29 @@
+def main():
+    rival = list(input())
+    possiblePaCount = 0
+    intOut = 0
+    result = ""
+
+    for i in range(len(rival)):
+        if rival[i] == "g":
+            if possiblePaCount > 0:
+                intOut += 1
+                possiblePaCount -= 1
+                result += "p"
+            else:
+                possiblePaCount = 1
+                result += "g"
+
+        if rival[i] == "p":
+            if possiblePaCount > 0:
+                possiblePaCount -= 1
+                result += "p"
+            else:
+                result += "g"
+                possiblePaCount = 1
+                intOut -= 1
+
+    print(intOut)
+    #print(result)
+if __name__ == '__main__':
+  main()

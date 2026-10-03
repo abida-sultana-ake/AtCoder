@@ -1,0 +1,18 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+
+
+class Main{
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int q = Integer.parseInt(br.readLine());
+		if(q == 1){
+			System.out.println("ABC");
+		}else{
+			System.out.println("chokudai");
+		}
+	}
+
+}

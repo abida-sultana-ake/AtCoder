@@ -1,0 +1,13 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+public class Main {
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+	public static void main(String[] args) throws Exception{
+		int[] t = {0, 1,3,1,2,1,2,1,1,2,1,2,1};
+		String[] u = br.readLine().split(" ");
+		int a = Integer.parseInt(u[0]), b = Integer.parseInt(u[1]);
+		System.out.println(t[a] == t[b] ? "Yes" : "No");
+		
+	}
+}

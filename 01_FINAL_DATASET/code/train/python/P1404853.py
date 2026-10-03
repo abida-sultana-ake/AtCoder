@@ -1,0 +1,1 @@
+print(("Yes","No")[len(set(map(str.upper,input().split())))-1])

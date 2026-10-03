@@ -1,0 +1,12 @@
+import re
+
+def main():
+    X = str(input())
+
+    ans = re.sub(r'(ch)|[oku]', '', X)
+    if ans == '':
+        print('YES')
+    else:
+        print('NO')
+
+main()

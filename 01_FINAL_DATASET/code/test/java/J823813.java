@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int h = in.nextInt();
+        int w = in.nextInt();
+
+        System.out.println(h * (w-1) + (h-1) * w);
+
+        in.close();
+    }
+}

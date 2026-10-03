@@ -1,0 +1,35 @@
+from collections import defaultdict
+from itertools import product
+
+
+def solve(a, k, b_list):
+    used = [False] * (len(b_list) + 1)
+
+    l = []
+    now = a
+    while True:
+
+        if used[now]:
+            loop_idx = l.index(now)
+            break
+
+        l.append(now)
+        used[now] = True
+        now = b_list[now - 1]
+
+    if k >= len(l):
+        k -= loop_idx
+        k = loop_idx + k % (len(l) - loop_idx)
+
+    return l[k]
+
+
+def main():
+    N, a = map(int, input().split())
+    k = int(input())
+    b_list = list(map(int, input().split()))
+    print(solve(a, k, b_list))
+
+
+if __name__ == '__main__':
+    main()

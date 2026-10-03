@@ -1,0 +1,16 @@
+N = int(raw_input())
+A = list(map(int,raw_input().split()))
+A.sort()
+MOD = 10**9 + 7
+def calc(a):
+	if N % 2 == 0:
+		B = [int(i/2)*2 + 1 for i in range(0,N)]
+		if A != B:
+			return 0
+	else:
+		B = [int(i/2)*2 for i in range(1,N+1)]
+		if A != B:
+			return 0
+	return 2 ** int(N/2)
+
+print(calc(A) % MOD)

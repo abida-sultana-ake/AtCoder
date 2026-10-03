@@ -1,0 +1,28 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+    private static Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) {
+	String c = scan.next();
+
+	String ans;
+	switch(c.charAt(0)) {
+	    case 'a':
+	    case 'i':
+	    case 'u':
+	    case 'e':
+	    case 'o':
+		ans = "vowel";
+		break;
+	    default:
+		ans = "consonant";
+		break;
+	}
+		
+	System.out.println(ans);
+	scan.close();
+    }
+}

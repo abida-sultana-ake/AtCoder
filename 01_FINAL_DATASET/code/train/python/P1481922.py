@@ -1,0 +1,2 @@
+H1, H2 = int(input()), int(input())
+print(H1 - H2)

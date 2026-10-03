@@ -1,0 +1,16 @@
+from collections import deque
+
+def main():
+    N = int(input())
+    A = tuple(map(int, input().split()))
+
+    b = deque()
+    for i in range(N):
+        if i % 2 == (N - 1) % 2:
+            b.appendleft(A[i])
+        else:
+            b.append(A[i])
+
+    print(*b, sep=' ')
+
+main()

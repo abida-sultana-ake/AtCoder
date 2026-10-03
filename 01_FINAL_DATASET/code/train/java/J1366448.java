@@ -1,0 +1,14 @@
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int x = scan.nextInt();
+		int y = 0;
+		for (int i = 0; i < x; i++) {
+			y = y + i * 10000+10000;
+		}
+		System.out.println(y / x);
+	}
+}

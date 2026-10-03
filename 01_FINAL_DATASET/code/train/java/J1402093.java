@@ -1,0 +1,25 @@
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		// BufferedReader br = new BufferedReader(new
+		// InputStreamReader(System.in));
+		// String line = br.readLine();
+		Scanner scan = new Scanner(System.in);
+int[] A = new int[3];
+		
+		A[0] = scan.nextInt();
+		A[1] = scan.nextInt();
+		A[2] = scan.nextInt();
+		
+		Arrays.sort(A);
+		
+		System.out.println(A[1]);
+		
+	   
+
+	}
+}

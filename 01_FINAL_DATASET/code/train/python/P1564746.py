@@ -1,0 +1,5 @@
+n=int(input())
+a=list(map(int,input().split()))
+k=int(input())
+arr=list(map(int,input().split()))
+print("YES") if len(set(arr+a))==k+2 else print("NO")

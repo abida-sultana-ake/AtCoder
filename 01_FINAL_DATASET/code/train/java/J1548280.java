@@ -1,0 +1,34 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int A = sc.nextInt();
+		int B = sc.nextInt();
+		int C = sc.nextInt();
+		int D = sc.nextInt();
+		int E = sc.nextInt();
+		int[] a = new int[5];
+		a[0] = A; a[1] = B; a[2] = C; a[3] = D; a[4] = E;
+		Set<Integer> set = new TreeSet<Integer>();
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = 0 ; j < 5 ; j++) {
+				for(int k = 0 ; k < 5 ; k++) {
+					if(i == j || j == k || k == i) continue;
+					set.add(a[i] + a[j] + a[k]);
+				}
+			}
+		}
+		List<Integer> list = new ArrayList<Integer>();
+		for(int number : set) {
+			list.add(number);
+		}
+		int size = list.size();
+		System.out.println(list.get(size - 3));
+	}
+}

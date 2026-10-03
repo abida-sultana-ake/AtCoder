@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+class Main {
+	static Scanner sc;
+
+	public static void main(String[] args) {
+		sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		String s[] = new String[n];
+		char a[][] = new char[n][n];
+		sc.nextLine();
+		for (int i = 0; i < n; i++)
+			s[i] = sc.nextLine();
+		for (int i = 0; i < n; i++)
+			a[i] = s[i].toCharArray();
+		char roll[][] = rotate(a, n).clone();
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++)
+				System.out.print(roll[i][j]);
+			System.out.println("");
+		}
+	}
+
+	private static char[][] rotate(char[][] a, int n) {
+		char b[][] = new char[n][n];
+		for (int i = 0; i < n; i++)
+			b[i] = (char[]) a[i].clone();
+		for (int i = 0; i < n; i++)
+			for (int j = 0; j < n; j++)
+				a[j][n - i - 1] = b[i][j];
+		return a;
+	}
+}

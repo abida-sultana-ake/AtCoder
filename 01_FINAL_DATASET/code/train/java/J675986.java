@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args){
+		Scanner sc=new Scanner(System.in);
+		double w=sc.nextDouble();
+		double h=sc.nextDouble();
+		System.err.println((double)4/3);
+		System.err.println(w/h);
+		if(w/h==(double)4/3){
+			System.out.println("4:3");
+		}else if(w/h==(double)16/9){
+			System.out.println("16:9");
+		}
+		sc.close();
+	}
+}

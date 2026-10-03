@@ -1,0 +1,30 @@
+import java.util.*;
+public class Main {
+	static Scanner s = new Scanner(System.in);
+	public static void main(String __[]){
+		int n=s.nextInt(),in[]=new int[n];
+		for(int i=0;i<n;i++) in[i]=s.nextInt();
+		Arrays.sort(in);
+		reverse(in);
+
+
+		double res=0;
+		for(int i=0;i<n;i++) {
+			res+=i%2==0?
+					(in[i]*in[i])*Math.PI
+					:-(in[i]*in[i])*Math.PI;
+		}
+		System.out.printf("%.8f\n",res);
+	}
+
+	public static void swap(int[] l, int a, int b) {
+		int x=l[b];
+		l[b]=l[a];
+		l[a]=x;
+	}
+	public static void reverse(int[] b) {
+		for (int c = 0; c < b.length / 2; c++) {
+			swap(b, c, b.length - 1 - c);
+		}
+	}
+}

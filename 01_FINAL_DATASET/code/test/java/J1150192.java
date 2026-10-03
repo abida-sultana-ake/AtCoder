@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		int[] Secs = new int [n];
+		int min = 1000;
+		for(int i = 0; i < n; ++i){
+			Secs[i] = scan.nextInt();
+			if(Secs[i] < min)min = Secs[i];
+		}
+		System.out.println(min);
+		scan.close();
+	}
+
+}

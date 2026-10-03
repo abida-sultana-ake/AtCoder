@@ -1,0 +1,19 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] s = br.readLine().split(" ");
+        int n = Integer.parseInt(s[0]), m = Integer.parseInt(s[1]);
+        double rn = (n % 12) * 30.0 + (0.5 * m);
+        double rm = 6.0 * m;
+        
+        double ans = Math.abs(rn - rm);
+        if(ans > 180){
+            ans = 360 - ans;
+        }
+        System.out.println(ans);
+    }
+}

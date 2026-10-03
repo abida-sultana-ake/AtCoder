@@ -1,0 +1,45 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int[] radius = new int[N];
+        for (int i = 0; i < N; i++) {
+            radius[i] = sc.nextInt();
+        }
+        Arrays.sort(radius);
+
+        double answer = 0;
+
+        if (N % 2 == 0) {
+            for (int i = 0; i < N; i++) {
+                if (i % 2 == 0) {
+                    answer -= calculateCircle(radius[i]);
+                } else {
+                    answer += calculateCircle(radius[i]);
+                }
+
+            }
+        } else {
+            for (int i = 0; i < N; i++) {
+                if (i % 2 == 0) {
+
+                    answer += calculateCircle(radius[i]);
+                } else {
+                    answer -= calculateCircle(radius[i]);
+                }
+            }
+
+        }
+        System.out.println(answer);
+
+    }
+
+    private static double calculateCircle(double radius) {
+        return Math.PI * Math.pow(radius, 2);
+    }
+
+
+}

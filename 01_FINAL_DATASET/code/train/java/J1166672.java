@@ -1,0 +1,16 @@
+import java.util.*;
+
+class Main{
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		long x = scan.nextLong();
+		long range = 0;
+		for(int i = 1; ; i++) {
+			range+=i;
+			if(range>=x) {
+				System.out.println(i);
+				return;
+			}
+		}
+	}
+}

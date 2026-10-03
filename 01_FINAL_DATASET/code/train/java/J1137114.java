@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+
+      int answer = 0;
+      for(int i = 0; i < n; i++) {
+         int petal = sc.nextInt();
+         while(true) {
+            if(!(petal % 3 == 2 || petal % 2 == 0)) {
+               break;
+            }
+            else {
+               petal--;
+               answer++;
+            }
+         }
+      }
+      System.out.println(answer);
+   }
+}

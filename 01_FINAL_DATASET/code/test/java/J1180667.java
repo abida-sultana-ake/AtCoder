@@ -1,0 +1,105 @@
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+	static final DecimalFormat decimal = new DecimalFormat("00");
+	public static void main(String[] args) throws IOException {
+		// TODO 自動生成されたメソッド・スタブ
+		Scanner scan = new Scanner(System.in);
+		int n = 0;
+		n = Integer.parseInt(scan.next());
+
+		String[] startTime = new String[n];
+		String[] endTime = new String[n];
+		for(int i = 0; i < n; i++) {
+			String[] time = scan.next().split("-");
+			startTime[i] = time[0];
+			endTime[i] = time[1];
+		}
+
+		scan.close();
+
+		int [] sTime = new int[n+1];
+		int [] eTime = new int[n+1];
+
+
+		String endRound = "";
+		int endNumber = 0;
+		for(int i = 0; i < n; i++) {
+			startTime[i] = startTime[i].substring(0, 2)  + startRound(startTime[i].substring(2, 4));
+			endRound = endRound(endTime[i].substring(2, 4));
+			endNumber =Integer.parseInt(endTime[i].substring(0, 2));
+			if(endRound.equals("Up")){
+				endNumber += 1;
+				endRound="00";
+			}
+			endTime[i] = String.valueOf(endNumber) + endRound;
+
+			sTime[i] = Integer.parseInt(startTime[i]);
+			eTime[i] = Integer.parseInt(endTime[i]);
+
+		}
+		sTime[n] = 10000;
+		eTime[n]  =10000;
+		Arrays.sort(sTime);
+		Arrays.sort(eTime);
+		List<Integer> ansList = new ArrayList<>();
+		int si = 0;
+		int ei = 0;
+
+		while(ei < n){
+			if(sTime[si] <= eTime[ei]) {
+				if(ansList.size() % 2 == 0) {
+					ansList.add(sTime[si]);
+				}else{
+					ei++;
+				}
+				si++;
+			}else{
+				ansList.add(eTime[ei]);
+				ei++;
+			}
+		}
+
+		DecimalFormat decimal = new DecimalFormat("0000");
+		PrintWriter out = new PrintWriter(System.out);
+		for(int i = 0; i < ansList.size(); i++) {
+			if(i % 2 == 0) {
+				out.print(decimal.format(ansList.get(i)) + "-");
+			}else {
+				out.println(decimal.format(ansList.get(i)));
+			}
+		}
+
+		out.flush();
+	}
+
+	public static String startRound(String str) {
+		int a = Integer.parseInt(str);
+		a -= a % 5;
+		return decimal.format(a);
+	}
+	public static String endRound(String str) {
+		int a = Integer.parseInt(str);
+		if(a % 5 != 0){
+			a = a + 5;
+		}
+
+		a -= a % 5;
+		if(a >= 60) {
+			a = -1;
+			return "Up";
+		}
+
+		return decimal.format(a);
+
+	}
+
+}

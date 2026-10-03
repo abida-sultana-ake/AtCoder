@@ -1,0 +1,51 @@
+import math,string,itertools,fractions,heapq,collections,re,array,bisect,sys,random,time
+
+sys.setrecursionlimit(10**7)
+inf = 10**20
+mod = 10**9 + 7
+
+def LI(): return [int(x) for x in sys.stdin.readline().split()]
+def LF(): return [float(x) for x in sys.stdin.readline().split()]
+def LS(): return sys.stdin.readline().split()
+def I(): return int(sys.stdin.readline())
+def F(): return float(sys.stdin.readline())
+def S(): return input()
+
+
+def main():
+    s = S()
+    t = S()
+    sl = len(s)
+    tl = len(t)
+    c = 0
+    sa = []
+    for i in range(sl):
+        c += 1 if s[i] == 'A' else 2
+        sa.append(c)
+    c = 0
+    ta = []
+    for i in range(tl):
+        c += 1 if t[i] == 'A' else 2
+        ta.append(c)
+
+    r = []
+    q = I()
+    for _ in range(q):
+        a,b,c,d = LI()
+        st = sa[b-1]
+        if a > 1:
+            st -= sa[a-2]
+        tt = ta[d-1]
+        if c > 1:
+            tt -= ta[c-2]
+        if st % 3 == tt % 3:
+            r.append('YES')
+        else:
+            r.append('NO')
+
+
+    return '\n'.join(r)
+
+
+
+print(main())

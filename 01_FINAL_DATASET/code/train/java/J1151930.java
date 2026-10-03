@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Long a = scanner.nextLong(),b = scanner.nextLong(),x = scanner.nextLong();
+		Long count = (long) 0;
+		if(a % x == 0){
+			count = b/x - a/x + 1;
+		}else{
+			count = b/x - a/x;
+		}
+		System.out.println(count);
+	}
+
+}

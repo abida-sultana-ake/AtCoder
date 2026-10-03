@@ -1,0 +1,20 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        doA();
+    }
+
+    public static void doA() {
+        Scanner sc = new Scanner(System.in);
+        String C_ = sc.next();
+        String C = sc.next();
+        if(C_.toLowerCase().equals(C))System.out.println("Yes");
+        else System.out.println("No");
+    }
+}

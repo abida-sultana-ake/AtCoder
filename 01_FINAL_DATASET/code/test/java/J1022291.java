@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+	void run() {
+		Scanner sc = new Scanner(System.in);
+
+		char c = sc.next().toCharArray()[0];
+		char[] vowel = { 'a', 'i', 'u', 'e', 'o' };
+		for (int i = 0; i < 5; i++) {
+			if (c == vowel[i]) {
+				System.out.println("vowel");
+				return;
+			}
+		}
+		System.out.println("consonant");
+	}
+
+	public static void main(String[] args) {
+		new Main().run();
+	}
+}

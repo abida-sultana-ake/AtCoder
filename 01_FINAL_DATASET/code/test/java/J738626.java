@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		
+		int H = scn.nextInt();
+		int W = scn.nextInt();
+		
+		System.out.println(H*(W-1)+W*(H-1));
+	}
+}

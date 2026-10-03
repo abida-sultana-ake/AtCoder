@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+/**
+ * Created by nakatsukatakahiro on 2017/06/22.
+ */
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int H = scanner.nextInt();
+        int W = scanner.nextInt();
+
+        for (int i = 0; i < W + 2; i++) {
+            System.out.print("#");
+        }
+        System.out.println();
+
+        for (int i = 0; i < H; i++) {
+            String str = scanner.next();
+            System.out.print("#");
+            for (int j = 0; j < W; j++) {
+                System.out.print(str.substring(j, j + 1));
+            }
+            System.out.println("#");
+        }
+
+        for (int i = 0; i < W + 2; i++) {
+            System.out.print("#");
+        }
+        System.out.println();
+    }
+}

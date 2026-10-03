@@ -1,0 +1,10 @@
+a = input()
+b = list(input())
+c1 = b.count('1')
+c2 = b.count('2')
+c3 = b.count('3')
+c4 = b.count('4')
+d = [c1, c2, c3, c4]
+max = max(d)
+min = min(d)
+print(max, min)

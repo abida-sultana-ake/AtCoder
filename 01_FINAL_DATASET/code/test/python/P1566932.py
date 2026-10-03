@@ -1,0 +1,16 @@
+def judge(str):
+    for i in range(len(str) - 2):
+        if str[i] == str[i + 2]:
+            print(i + 1, i + 3)
+            return
+    
+    for i in range(len(str) - 1):
+        if str[i] == str[i + 1]:
+            print(i + 1, i + 2)
+            return
+
+    print(-1, -1)
+    return
+
+s = input()
+judge(s)

@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        String answer;
+        if (N % 3 ==0) {
+            answer = "YES";
+        } else {
+            answer ="NO";
+        }
+        System.out.println(answer);
+    }
+
+}

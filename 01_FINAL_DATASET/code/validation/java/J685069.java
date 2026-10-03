@@ -1,0 +1,34 @@
+import java.util.Scanner;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+class Main{
+	public static void main(String args[])throws IOException{
+		BufferedReader cin=new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter cout=new PrintWriter(System.out);
+
+		String[] str=cin.readLine().split(" ");
+		int N=Integer.parseInt(str[0]);
+		int Q=Integer.parseInt(str[1]);
+
+		int sum[]=new int[N+1];
+		for(int i=0;i<=N;i++)sum[i]=0;
+
+		for(int i=0;i<Q;i++){
+			str=cin.readLine().split(" ");
+			int l=Integer.parseInt(str[0]);
+			int r=Integer.parseInt(str[1]);
+			l--;
+			sum[l]++;
+			sum[r]--;
+		}
+		for(int i=0;i<N;i++){
+			cout.print(sum[i]&1);
+			sum[i+1]+=sum[i];
+		}
+		cout.println();
+		cout.flush();
+	}
+}

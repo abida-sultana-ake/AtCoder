@@ -1,0 +1,28 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		new Main().solve();
+	}
+	
+	void solve() {
+		Scanner sc=new Scanner(System.in);
+		int[]score=new int[3];
+		int[] rank=new int[3];
+		for(int i=0;i<3;i++) {
+			score[i]=sc.nextInt();
+		}
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				if(i!=j) {
+					if(score[i]<score[j])rank[i]++;
+				}
+			}
+		}
+		for(int i=0;i<3;i++) {
+			System.out.println(rank[i]+1);
+		}
+	}
+}

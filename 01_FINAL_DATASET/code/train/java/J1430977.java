@@ -1,0 +1,9 @@
+import java.util.Scanner;
+import java.util.stream.IntStream;
+class Main{
+    public static void main(String[]$){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt(),k=s.nextInt();
+        System.out.println(IntStream.range(0,n).map(i->s.nextInt()).sorted().skip(n-k).sum());
+    }
+}

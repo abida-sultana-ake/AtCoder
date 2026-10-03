@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+
+	void run() {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int ans = 1_000_000_000;
+
+		for (int i = 1; i <= n; i++) {
+			int j = n / i;
+			int tmp = Math.abs(i - j) + (n - (i * j));
+			ans = Math.min(ans, tmp);
+		}
+
+		System.out.println(ans);
+
+	}
+
+	public static void main(String[] args) {
+		new Main().run();
+	}
+
+}

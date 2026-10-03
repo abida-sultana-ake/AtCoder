@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+/**
+ * http://abc006.contest.atcoder.jp/tasks/abc006_2
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		sc.close();
+		
+		long t[] = new long[n];
+		t[0] = 0;
+		if(n>1) t[1] = 0;
+		if(n>2) t[2] = 1;
+		for(int i=3; i<n; i++){
+			t[i] = (t[i-1]+t[i-2]+t[i-3])%10007;
+		}
+		
+		System.out.println(t[n-1]%10007);
+		
+	}
+	
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+
+	void run() {
+		try (Scanner sc = new Scanner(System.in)) {
+			int n = sc.nextInt();
+			int t = sc.nextInt();
+			long sum = t;
+			int pre = sc.nextInt();
+			for(int i=1;i<n;i++) {
+				int now = sc.nextInt();
+				sum += Math.min(t, now-pre);
+				pre = now;
+			}
+			System.out.println(sum);
+		}
+	}
+	
+	public static void main(String[] args) {
+		new Main().run();
+	}
+	
+}

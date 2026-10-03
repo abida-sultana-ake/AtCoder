@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+
+		BufferedReader br = null;
+
+		try {
+			br = new BufferedReader(new InputStreamReader(System.in));
+
+			String in = br.readLine();
+
+			String[] work = in.split(" ");
+
+			int a = Integer.parseInt(work[0]);
+			int b = Integer.parseInt(work[1]);
+			int c = Integer.parseInt(work[2]);
+
+			int result = 0;
+
+			if (a <= b) {
+				result = c / a;
+			} else {
+				result = c / b;
+			}
+
+			System.out.println(result);
+
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+				}
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,1 @@
+print(len({s[i:i+n]for s,n in[[input(),int(input())]]for i in range(len(s)-n+1)}))

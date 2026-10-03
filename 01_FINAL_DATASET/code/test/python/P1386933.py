@@ -1,0 +1,1 @@
+print([m for i in[lambda:int(input())]for a,b,n in[(i(),i(),i())]for m in range(n,10**6)if(m%a+m%b)==0][0])

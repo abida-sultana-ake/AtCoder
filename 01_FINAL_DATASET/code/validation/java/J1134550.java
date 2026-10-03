@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int W = sc.nextInt();
+    int H = sc.nextInt();
+    long rem1 = 1;
+    long rem2 = 1;
+    long MOD = 1000000007;
+    for(int i = 1; i < Math.min(W, H); i++) {
+      rem1 = (rem1 * (Math.max(W, H) - 1 + i)) % MOD;
+      rem2 = (rem2 * i) % MOD;
+    }
+    long inverse = calc(rem2, MOD - 2, MOD);
+    System.out.println((rem1 * inverse) % MOD);
+  }
+
+  public static long calc(long a, long b, long p) {
+    if(b == 0) return 1;
+    if(b % 2 == 0) {
+      long d = calc(a, b / 2, p);
+      return (d * d) % p;
+    } else {
+      return (a * calc(a, b - 1, p)) % p;
+    }
+  }
+}

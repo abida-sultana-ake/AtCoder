@@ -1,0 +1,18 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // Here your code !
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String line = br.readLine();
+        String[] num = line.split(" ");
+        int x = Integer.parseInt(num[0]);
+        int y = Integer.parseInt(num[1]);
+        if(x < y) {
+            System.out.println("Better");
+        } else {
+            System.out.println("Worse");
+        }
+    }
+}

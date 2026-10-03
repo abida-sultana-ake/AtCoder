@@ -1,0 +1,11 @@
+def main():
+    N = int(input())
+
+    if N & 1:
+        ans = N + 1
+    else:
+        ans = N - 1
+
+    print(ans)
+
+main()

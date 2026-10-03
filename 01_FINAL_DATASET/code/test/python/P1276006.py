@@ -1,0 +1,1 @@
+print((lambda height,BMI : (height/100)**2*BMI )(*[float(_) for _ in input().split()]))

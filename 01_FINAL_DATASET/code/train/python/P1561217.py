@@ -1,0 +1,18 @@
+# encoding:utf-8
+def main():
+	n = int(input())
+	nums = list(map(int, input().split()))
+
+	counter = 0
+	for i in range(n - 1):
+		if nums[i] == i + 1:
+			nums[i], nums[i + 1] = nums[i + 1], nums[i]
+			counter += 1
+
+	if nums[n - 1] == n:
+		counter += 1
+
+	print(counter)
+
+if __name__ == '__main__':
+	main()

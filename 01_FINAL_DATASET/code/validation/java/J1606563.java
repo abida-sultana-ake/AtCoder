@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+class Main {
+    
+    void solve(){
+        Scanner in = new Scanner(System.in);
+        long A = in.nextLong();
+        long K = in.nextLong();
+        int ans = 0;
+
+        if(K == 0){
+            System.out.println((long)(2 * 1e12) - A);
+            return;
+        }
+        while(A < 2 * 1e12){
+            A = 1 + (K + 1) * A;
+            ans++;
+        }
+        System.out.println(ans);
+    }
+    
+    public static void main(String[] args) {
+        new Main().solve();
+    }
+}

@@ -1,0 +1,31 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+class Main{
+
+	public static void main(String[] args) throws Exception {
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       //String[] input = br.readLine().split(" ");
+       int m = Integer.parseInt(br.readLine());
+       double n = m / 1000.0;
+       if(n < 0.1){
+       	System.out.println("00");
+       }else if(0.1 <= n && n <= 5.0){
+       	if(1.0 > n){
+       		System.out.print("0");
+       		System.out.println((int)(n * 10));
+       	}else{
+	       	System.out.println((int)(n * 10));
+	       }
+       }else if(6.0 <= n && n <= 30.0){
+       	System.out.println((int)(n + 50));
+       }else if(35.0 <= n && n <= 70.0){
+       	System.out.println((int)(((n - 30) / 5) + 80));
+       }else{
+       	System.out.println(89);
+       }
+
+   }
+       
+
+}

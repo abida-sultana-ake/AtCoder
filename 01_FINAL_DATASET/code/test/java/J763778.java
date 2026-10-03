@@ -1,0 +1,27 @@
+
+import java.util.*;
+
+public class Main
+{
+    private final static Main main = new Main();
+
+    public static void main(String[] args)
+    {
+        main.contest();
+    }
+
+    private void contest()
+    {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] as = {"Do", "", "Re", "", "Mi", "Fa", "", "So", "", "La", "", "Si"};
+        String seq = "WBWBWWBWBWBW";
+        int index = 0;
+        while(!s.startsWith(seq))
+        {
+            seq = seq.substring(1) + seq.charAt(0);
+            ++index;
+        }
+        System.out.println(as[index%seq.length()]);
+    }
+}

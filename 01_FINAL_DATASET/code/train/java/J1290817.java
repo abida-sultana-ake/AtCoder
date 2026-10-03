@@ -1,0 +1,27 @@
+
+import java.io.*;
+import java.util.*;
+
+/**
+ *
+ * @author hakoneko
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner a = new Scanner(System.in);
+        int n = a.nextInt();
+        int s = a.nextInt();
+        int t = a.nextInt();
+        int c=0;
+        int w=0;
+
+        for (int i = 0; i < n; i++) {
+            w += a.nextInt();
+            if (w >= s && w <=t) {
+                c +=1;
+            }
+        }
+ 
+        System.out.println(c);
+    }
+}

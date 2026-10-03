@@ -1,0 +1,33 @@
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc  = new Scanner(System.in);
+
+        long cnt = 0;
+
+        int N = sc.nextInt();
+        long A = sc.nextInt();
+        long B = sc.nextInt();
+
+        long[] dp  = new long[N];
+        
+        for(int i=0;i<N;i++){
+            dp[i] = sc.nextInt();
+        }
+
+        for (int i=0;i<N-1;i++){
+          //   System.out.println(cnt);
+            if( (dp[i+1]-dp[i]) * A < B ) cnt += (dp[i+1]-dp[i]) * A ; 
+            else cnt += B;
+          //  System.out.println(i);
+        } 
+
+
+
+        System.out.print(cnt);
+        System.out.println();
+    }
+
+}

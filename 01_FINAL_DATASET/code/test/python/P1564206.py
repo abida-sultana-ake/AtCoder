@@ -1,0 +1,15 @@
+import sys
+
+def main():
+    N = int(sys.stdin.readline())
+    p = list(map(int, input().split()))
+    count = 0
+    for i, n in enumerate(p, 1):
+        if i == n:
+            count += 1
+            if len(p) != i:
+                p[i - 1], p[i] = p[i], p[i - 1]
+    print(count)
+
+if __name__ == '__main__':
+    main()

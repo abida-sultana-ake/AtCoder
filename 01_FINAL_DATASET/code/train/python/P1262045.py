@@ -1,0 +1,49 @@
+import math,string,itertools,fractions,heapq,collections,re,array,bisect,sys,random,time,copy,functools
+
+sys.setrecursionlimit(10**7)
+inf = 10**20
+mod = 10**9 + 7
+
+def LI(): return [int(x) for x in sys.stdin.readline().split()]
+def LI_(): return [int(x)-1 for x in sys.stdin.readline().split()]
+def LF(): return [float(x) for x in sys.stdin.readline().split()]
+def LS(): return sys.stdin.readline().split()
+def I(): return int(sys.stdin.readline())
+def F(): return float(sys.stdin.readline())
+def S(): return input()
+
+
+def main():
+    a = [[0] + [-1 if c=='o' else 0 for c in S()] + [0] for _ in range(10)]
+    a = [[0] * 12] + a + [[0]*12]
+    c = 1
+    t = [[set() for j in range(12)] for i in range(12)]
+
+    def f(i,j,k):
+        if a[i][j] > 0:
+            return
+        if a[i][j] == 0:
+            t[i][j].add(k)
+            return
+        a[i][j] = k
+        f(i+1,j,k)
+        f(i-1,j,k)
+        f(i,j+1,k)
+        f(i,j-1,k)
+
+    for i in range(1,11):
+        for j in range(1,11):
+            if a[i][j] == -1:
+                f(i,j,c)
+                c += 1
+
+    c -= 1
+    for i in range(1,11):
+        for j in range(1,11):
+            if len(t[i][j]) == c:
+                return 'YES'
+
+    return 'NO'
+
+
+print(main())

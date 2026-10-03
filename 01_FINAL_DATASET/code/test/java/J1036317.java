@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+class Main{
+public static void main(String args[]){
+int n;
+int x;
+Scanner scan = new Scanner(System.in);
+n = scan.nextInt();
+x = scan.nextInt();
+if(x<=n/2){
+System.out.println(x-1);
+}else if(x>n/2){
+System.out.println(n-x);
+}
+}
+}

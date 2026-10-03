@@ -1,0 +1,65 @@
+import java.util.*;
+
+public class Main {
+  static int[] par;
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    int K = sc.nextInt();
+    int L = sc.nextInt();
+    par = new int[N];
+    for(int i = 0; i < N; i++) {
+      par[i] = i;
+    }
+    for(int i = 0; i < K; i++) {
+      int p = sc.nextInt() - 1;
+      int q = sc.nextInt() - 1;
+      unite(p, q);
+    }
+    int[] road = new int[N];
+    for(int i = 0; i < N; i++) {
+      road[i] = root(i);
+    }
+
+    for(int i = 0; i < N; i++) {
+      par[i] = i;
+    }
+    for(int i = 0; i < L; i++) {
+      int r = sc.nextInt() - 1;
+      int s = sc.nextInt() - 1;
+      unite(r, s);      
+    }
+    int[] rail = new int[N];
+    for(int i = 0; i < N; i++) {
+      rail[i] = root(i);
+    }
+
+    HashMap<Long, Integer> map = new HashMap<Long, Integer>();
+    for(int i = 0; i < N; i++) {
+      long g = (long)N * (long)road[i] + (long)rail[i];
+      if(map.containsKey(g)) {
+        map.put(g, map.get(g) + 1);
+      } else {
+        map.put(g, 1);
+      }
+    }
+    
+    for(int i = 0; i < N; i++) {
+      int ans = map.get((long)N * (long)road[i] + (long)rail[i]);
+      if(i == N - 1) {
+        System.out.print(ans);
+      } else {
+        System.out.print(ans + " ");
+      }
+    }
+  }
+  static int root(int x) {
+    if(x == par[x]) return x;
+    return par[x] = root(par[x]);
+  }
+  static void unite(int x, int y) {
+    int rootx = root(x);
+    int rooty = root(y);
+    if(rootx != rooty) par[rootx] = rooty;
+  }
+}

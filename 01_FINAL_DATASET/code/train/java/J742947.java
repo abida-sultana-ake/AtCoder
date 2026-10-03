@@ -1,0 +1,22 @@
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		solve();
+	}
+
+	private static void solve() {
+		Scanner sc = new Scanner(System.in);
+		PrintWriter pr = new PrintWriter(System.out);
+		String S = sc.next();
+		if(S.charAt(S.length()-1)=='T'){
+			pr.println("YES");
+		}else{
+			pr.println("NO");
+		}
+		pr.flush();
+		sc.close();
+	}
+}

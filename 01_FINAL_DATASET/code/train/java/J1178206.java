@@ -1,0 +1,16 @@
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int x = 0, y = 0;
+        for(int i = 1; i <= N; i++){
+        	x += 800;
+        	if(i % 15 == 0) y += 200;
+        }
+        System.out.println(x-y);
+	}
+
+}

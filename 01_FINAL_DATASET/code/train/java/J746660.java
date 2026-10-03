@@ -1,0 +1,33 @@
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Main {
+
+  public static void main(String[] args) {
+
+    Scanner s = new Scanner(System.in);
+    int length = Integer.parseInt(s.next());
+    ArrayList<Integer> list = new ArrayList<Integer>(length);
+    for (int i=0; i<length; i++) {
+      list.add(Integer.parseInt(s.next()));
+    }
+
+    BigInteger answer = new BigInteger(String.valueOf(length)); //この数字以上は必ずある。
+    for (int i=0; i<length; i++) {
+      for (int j=i+1; j<=length; j++) {
+        if (j == length || list.get(j-1) >= list.get(j)) {
+//          BigInteger a = new BigInteger(String.valueOf(j - i - 1));
+//          BigInteger b = new BigInteger(String.valueOf(j - i));
+//          BigInteger c = new BigInteger("2");
+          answer = answer.add(new BigInteger(String.valueOf((long)(j - i - 1) * (long)(j - i) / 2)));
+          i = j - 1;
+          break;
+        }
+      }
+    }
+
+    System.out.println(answer);
+
+  }
+
+}

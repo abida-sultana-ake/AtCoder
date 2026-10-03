@@ -1,0 +1,19 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int N = Integer.parseInt(br.readLine());
+		int x = 0;
+		double y = 0;
+
+		for (int i = 1; i <= N; i++) {
+			x = i * 10000;
+			y = y + x;
+		}
+		y = y / N;
+		System.out.println(y);
+	}
+}

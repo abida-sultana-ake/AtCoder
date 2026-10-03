@@ -1,0 +1,19 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        int[] ans = new int[6];
+        for(int i = 0; i < s.length(); i++){
+            ans[s.charAt(i) - 'A']++;
+        }
+        for(int i = 0; i < ans.length; i++){
+            System.out.print((i == 0 ? "" : " ") + ans[i]);
+        }
+        System.out.println();
+        
+    }
+}
+

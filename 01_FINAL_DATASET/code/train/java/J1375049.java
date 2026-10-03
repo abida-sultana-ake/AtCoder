@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main{
+
+	public static void main(String[] args) {
+
+		// map
+		
+		Scanner sc = new Scanner(System.in);
+		int x = sc.nextInt();
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		sc.close();
+		String result = "dangerous";
+		
+		if (b<=a){
+			result = "delicious";
+		}
+		else if (b<=(a+x)){
+			result = "safe";
+		}
+		
+		System.out.print(result);
+		
+		return;
+	}
+}

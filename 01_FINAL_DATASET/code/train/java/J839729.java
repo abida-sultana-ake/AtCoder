@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.next();
+		StringBuilder edit = new StringBuilder();
+		int j = 0;
+		for(int i=0; i<str.length(); i++){
+			if(str.charAt(i)!='B'){
+				edit.append(str.charAt(i));
+				j++;
+			}else{
+				j--;
+				if(j>=0){
+					edit.deleteCharAt(j);
+				}else{
+					j = 0;
+				}
+			}
+		}
+		System.out.println(edit);
+	}
+}

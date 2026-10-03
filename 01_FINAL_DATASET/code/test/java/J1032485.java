@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+/**
+ * Created by sougo on 2016/12/18.
+ */
+
+
+public class Main {
+    public static void main(String[] args){
+
+        try {
+            Scanner scan = new Scanner(System.in);
+            int a = scan.nextInt();
+            String b = scan.next();
+            int c = scan.nextInt();
+
+            if (b.equals("+")) {
+                a = a+c;
+                System.out.println(a);
+            } else {
+                a= a-c;
+                System.out.println(a);
+            }
+        }catch (Exception e){}
+    }
+
+
+}

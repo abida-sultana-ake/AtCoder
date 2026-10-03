@@ -1,0 +1,26 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		// BufferedReader br = new BufferedReader(new
+		// InputStreamReader(System.in));
+		// String line = br.readLine();
+		Scanner scan = new Scanner(System.in);
+
+		String str = scan.nextLine();
+		int N = scan.nextInt();
+		
+		int a = (N-1)/5;
+		int b = (N-1)%5;
+		
+		String c =str.substring(a,a+1);
+		String d =str.substring(b,b+1);
+		
+		System.out.print(c);
+		System.out.print(d);
+		System.out.println("");
+
+	}
+}

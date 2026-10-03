@@ -1,0 +1,7 @@
+def main():
+    N = int(input())
+
+    ans = N * (N + 1) / 2 * 10000 / N
+    print(int(ans))
+
+main()

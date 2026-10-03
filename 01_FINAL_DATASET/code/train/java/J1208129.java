@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+	
+	private static List<Map<Character , Integer>> list = new ArrayList<>();	
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		int i , j , n = scan.nextInt();
+		for (i = 0;i < n;i ++) {
+			String string = scan.next();
+			Map<Character , Integer> map = new HashMap<Character , Integer>();
+			for (j = 0;j < string.length();j ++) {
+				char ch = string.charAt(j);	
+				if (!map.containsKey(ch)) {
+					map.put(ch , 0);
+				}
+				map.put(ch , map.get(ch) + 1);
+			}
+			list.add(map);
+		}
+		List<Character> chList = new ArrayList<Character>();
+		for (char ch = 'a';ch <= 'z';ch ++) {
+			int temp = - 1;
+			for (Map<Character , Integer> map : list) {
+				if (map.containsKey(ch)) {
+					int cnt = map.get(ch);
+					if (cnt < temp || temp < 0) {
+						temp = cnt;
+					}
+				} else {
+					temp = - 1;
+					break;
+				}
+			}
+			if (temp >= 0) {
+				for (i = 0;i < temp;i ++) {
+					chList.add(ch);
+				}
+			}
+		}
+		Collections.sort(chList);
+		StringBuilder builder = new StringBuilder();
+		for (char ch : chList) {
+			builder.append(ch);
+		}
+		System.out.println(builder.toString());
+		
+	}
+
+} 
+
+
+

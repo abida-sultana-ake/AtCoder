@@ -1,0 +1,1 @@
+print(sum(r-l+1 for _ in [0]*(int(input()))for l,r in (map(int,input().split()),)))

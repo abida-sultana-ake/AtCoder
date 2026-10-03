@@ -1,0 +1,19 @@
+import sys
+
+def debug(x, table):
+    for name, val in table.items():
+        if x is val:
+            print('DEBUG:{} -> {}'.format(name, val), file=sys.stderr)
+            return None
+
+def solve():
+    H, W = map(int, input().split())
+    C = [input() for i in range(H)]
+    D = [[c for c in C[i//2]] for i in range(2*H)]
+
+    for i in range(2*H):
+        print(''.join(D[i]))
+
+
+if __name__ == '__main__':
+    solve()

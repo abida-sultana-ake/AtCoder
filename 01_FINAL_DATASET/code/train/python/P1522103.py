@@ -1,0 +1,5 @@
+x, a, b = [int(i) for  i in input().split()]
+if abs(x-a) < abs(x-b):
+    print('A')
+else:
+    print('B')

@@ -1,0 +1,18 @@
+N = int(input())
+prog = list(map(int,input().split()))
+def seq(prog,first_Ev=False):
+    sign = -1 if first_Ev else 1
+    if sign * prog[0] > 0:
+        answer = 0
+        result = prog[0]
+    else:
+        answer = abs(sign - prog[0])
+        result = sign
+    for i in prog[1:]:
+        sign *= -1
+        result += i
+        if result * sign <= 0:
+            answer += abs(sign - result)
+            result = sign
+    return answer
+print(min(seq(prog),seq(prog,first_Ev=True)))

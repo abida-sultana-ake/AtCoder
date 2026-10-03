@@ -1,0 +1,36 @@
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+
+		Scanner cin = new Scanner(System.in);
+
+		int n = Integer.parseInt(cin.nextLine());
+		String[] array = cin.nextLine().split(" ");
+
+		List<Long> bArray = new LinkedList<Long>();
+
+		for (int i = 0; i < n; i++) {
+			if (i % 2 == 0) {
+				bArray.add(Long.parseLong(array[i]));
+			} else {
+				bArray.add(0, Long.parseLong(array[i]));
+			}
+		}
+		if (n % 2 > 0) {
+			Collections.reverse(bArray);
+		}
+
+		StringBuilder buf = new StringBuilder(bArray.size());
+		for (long num : bArray) {
+			buf.append(num);
+			buf.append(" ");
+		}
+		System.out.println(buf.toString().trim());
+
+		cin.close();
+	}
+}

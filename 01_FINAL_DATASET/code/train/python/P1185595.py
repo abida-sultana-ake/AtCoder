@@ -1,0 +1,1 @@
+i=input;n=int(i());print(sum((c<'F')*(69-ord(c)) for c in list(i()))/n)

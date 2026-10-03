@@ -1,0 +1,1 @@
+a,b,c,d=map(int,input().split());print(["AOKI","TAKAHASHI","DRAW"][2 if b*c==a*d else b*c>a*d])

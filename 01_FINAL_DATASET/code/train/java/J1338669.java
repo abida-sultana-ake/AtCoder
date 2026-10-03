@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int in1, in2;
+        in1 = Integer.parseInt(sc.nextLine());
+        in2 = Integer.parseInt(sc.nextLine());
+
+        if(in1<0 || in1 >2000)
+            return ;
+        if(in2<0 || in2 > 2000)
+            return;
+        System.out.println(in1 - in2);
+
+    }
+
+}

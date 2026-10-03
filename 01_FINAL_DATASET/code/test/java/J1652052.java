@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		int count = 0;
+		for(int i=0;i<n;i++){
+			int r = scanner.nextInt();
+			int l = scanner.nextInt();
+			count += Math.abs(l+1 - r);
+		}
+		System.out.println(count);
+	}
+
+}

@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+INF=10**10
+
+def main():
+    
+    str=input()
+    n=len(str)
+    if n==2:
+        if str[0]==str[1]:
+            print("1 2")
+            return 0
+        else:
+            print("-1 -1")
+            return 0
+        
+    
+    for i in range(n-2):
+        temp=str[i:i+3]
+        for j in range(2):
+            for k in range(j+1,3): #(0,1),(0,2),(1,2)
+                if temp[j]==temp[k]:
+                    print("{0} {1}".format(i+1,i+3))
+                    return 0
+    print("-1 -1")
+    
+if __name__=="__main__":
+    main()
+    

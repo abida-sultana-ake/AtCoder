@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+
+def solve(s):
+    n = len(s)
+    base = list("+".join(s))
+    ans = 0
+    for t in range(1 << (n - 1)):
+        xs = base[:]
+        for i in range(n - 1):
+            if t & (1 << i) > 0:
+                xs[2 * i + 1] = ""
+        eq = "".join(xs)
+        ans += eval(eq)
+    return ans
+
+
+def main():
+    print(solve(input()))
+
+
+if __name__ == '__main__':
+    main()

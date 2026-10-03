@@ -1,0 +1,18 @@
+s = [int(x) for x in input()]
+
+t = set()
+def calc(p):
+    total = 0
+    tmp = 0
+    for i in range(l):
+        tmp = tmp * 10 + s[i]
+        if p & (2**i):
+            total += tmp
+            tmp = 0
+    return total + tmp
+
+l = len(s)
+total = 0
+for i in range(2**(l-1)):
+    total += calc(i)
+print(total)

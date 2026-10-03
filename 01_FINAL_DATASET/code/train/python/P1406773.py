@@ -1,0 +1,1 @@
+print([(s(1,m[1]+(m[0]+p>l)),s(0,(m[0]+p,1)[m[0]+p>l]),m[1])[2]for n,l,m in[list(map(int,input().split()))+[[1,0]]]for c in input()for p,s in[[(-1,1)[c=="+"],m.__setitem__]]][-1])

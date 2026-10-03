@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+/**
+ * http://abc033.contest.atcoder.jp/tasks/abc033_b
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		final int N = sc.nextInt();
+		long sum = 0;
+		String[] s = new String[N];
+		int[] p = new int[N];
+		for(int i=0; i<N; i++){
+			s[i] = sc.next();
+			p[i] = sc.nextInt();
+			sum += p[i];
+		}
+		sc.close();
+		
+		String ans = "atcoder";
+		for(int i=0; i<N; i++){
+			if(p[i]*2>sum){
+				ans = s[i];
+				break;
+			}
+		}
+		
+		System.out.println(ans);
+
+	}
+
+}

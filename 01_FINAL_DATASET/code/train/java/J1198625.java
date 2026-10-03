@@ -1,0 +1,28 @@
+import java.util.*;
+ 
+// ABC 7-C
+// https://abc007.contest.atcoder.jp/tasks/abc007_3
+ 
+public class Main {
+
+	static int[] dp;
+	
+	public static void main (String[] args) throws java.lang.Exception {
+	    Scanner in = new Scanner(System.in);
+
+	    int max = 1000001;
+	    
+	    int n = in.nextInt();
+	    dp = new int[1000001];
+	    dp[1] = 0;
+	    dp[2] = 0;
+	    dp[3] = 1;
+	    dp[4] = 1;
+	    
+	    for (int i = 5; i < max; i++) {
+	    	dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
+	    	dp[i] %= 10007;
+	    }
+	    System.out.println(dp[n]);
+	}
+}

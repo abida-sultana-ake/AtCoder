@@ -1,0 +1,42 @@
+# coding: utf-8
+def II(): return int(input())
+def ILI(): return list(map(int, input().split()))
+
+
+def read():
+    A, B, C, D, E, F = ILI()
+    return A, B, C, D, E, F
+
+
+def solve(A, B, C, D, E, F):
+    s_wat = set()
+    for a in range(F // (100 * A) + 1):
+        now_wat = a * 100 * A
+        while now_wat <= F:
+            if now_wat != 0:
+                s_wat.add(now_wat)
+            now_wat += 100 * B
+    par = -1
+    ans_sug_wat = 0
+    ans_sug = 0
+    for wat in sorted(list(s_wat)):
+        sug_limit = min(((wat // 100) * E), F - wat)
+        for c in range(sug_limit // C + 1):
+            now_sug = c * C
+            now_sug += ((sug_limit - now_sug) // D) * D
+            now_par = 100 * (now_sug / (now_sug + wat))
+            if now_par > par:
+                ans_sug_wat = now_sug + wat
+                ans_sug = now_sug
+                par = now_par
+    ans = "{} {}".format(ans_sug_wat, ans_sug)
+    return ans
+
+
+def main():
+    params = read()
+    print(solve(*params))
+
+
+if __name__ == "__main__":
+    main()

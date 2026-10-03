@@ -1,0 +1,10 @@
+n = input()
+def slv(n):
+    for i in range(0,len(n)):
+        if n[i] == '3' or int(n) % 3 == 0:
+            print("YES")
+            return
+        else:
+            print("NO")
+            return
+slv(n)

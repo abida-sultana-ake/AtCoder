@@ -1,0 +1,30 @@
+from collections import defaultdict
+from itertools import product
+import bisect
+
+
+def main():
+    N, M = map(int, input().split())
+    X, Y = map(int, input().split())
+    a_list = list(map(int, input().split()))
+    b_list = list(map(int, input().split()))
+
+    ans = 0
+    now = 0
+    while True:
+        a_idx = bisect.bisect_left(a_list, now)
+        if a_idx >= len(a_list):
+            break
+        now = a_list[a_idx] + X
+
+        b_idx = bisect.bisect_left(b_list, now)
+        if b_idx >= len(b_list):
+            break
+        now = b_list[b_idx] + Y
+        ans += 1
+
+    print(ans)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,13 @@
+from collections import defaultdict
+
+
+def main():
+    a, b, n = int(input()), int(input()), int(input())
+    for ans in range(n, 10 ** 10):
+        if ans % a == 0 and ans % b == 0:
+            print(ans)
+            return
+
+
+if __name__ == '__main__':
+    main()

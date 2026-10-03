@@ -1,0 +1,38 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static int max(int[] array){
+		int m = array[0];
+		for(int n=1;n<array.length;n++){
+			if(array[n]>m) m=array[n];
+		}
+		return m;
+	}
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] line = br.readLine().split(" ");
+        int N = Integer.parseInt(line[0]),
+            T = Integer.parseInt(line[1]);
+        
+        line = br.readLine().split(" ");
+        int[] price = new int[N];
+        for(int n=0;n<N;n++) price[n]=Integer.parseInt(line[n]);
+        int[] highest = new int[N-1];
+        //highest[i]: the highest price of price[i+1],price[i+2],...,price[N-1]
+        //if Tak buy apples on city[i], the apple will be sold for highest[i] yen
+        highest[N-2] = price[N-1];
+        for(int n=N-3;n>=0;n--){
+        	highest[n] = Math.max(price[n+1],highest[n+1]);
+        }
+        int[] profit = new int[N-1];
+        for(int n=0;n<N-1;n++)profit[n] = Math.max(0,highest[n]-price[n]);
+        int best = max(profit);
+        
+        int count = 0;
+        for(int p:profit){
+        	if(p==best)count++;
+        }
+        System.out.println(count);
+    }
+}

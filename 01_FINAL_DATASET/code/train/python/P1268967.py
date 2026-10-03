@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+
+def main():
+    s = input().lower()
+    t = "ict"
+    for c in s:
+        if t and c == t[0]:
+            t = t[1:]
+    print("YES" if len(t) == 0 else "NO")
+
+
+if __name__ == '__main__':
+    main()

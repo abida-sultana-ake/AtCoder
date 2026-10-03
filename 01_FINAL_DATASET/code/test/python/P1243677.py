@@ -1,0 +1,5 @@
+def main():
+    S = str(input())
+    print(S + 'pp')
+
+main()

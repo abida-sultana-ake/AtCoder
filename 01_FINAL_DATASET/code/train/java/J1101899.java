@@ -1,0 +1,25 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class Main {
+           public static void main (String args[]){
+
+           BufferedReader reader = new BufferedReader (new InputStreamReader (System.in));
+           String line;
+
+           try {
+                   line = reader.readLine();
+                   int number = Integer.parseInt(line);
+                   if (number<1200){
+                         System.out.print("ABC");
+                  } else {
+                        System.out.print("ARC");
+                 }
+                 }catch (IOException e){
+                    System.out.print(e);
+                 }catch (NumberFormatException e){
+                     System.out.print("数字のみ");
+                  }
+}
+}

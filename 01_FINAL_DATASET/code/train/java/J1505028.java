@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String str = sc.next();
+    int n = str.length();
+    for(int i = 0; i<n/2; i++){
+      char a = str.charAt(i);
+      char b = str.charAt(n-1-i);
+      if(a != b){
+        System.out.println("No");
+        return;
+      }
+    }
+    System.out.println("Yes");
+  }
+}

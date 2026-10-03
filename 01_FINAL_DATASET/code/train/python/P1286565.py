@@ -1,0 +1,41 @@
+import sys
+
+inf = 1<<60
+
+def solve():
+    N, M = map(int, input().split())
+    edges = [None] * M
+
+    for i in range(M):
+        ai, bi, ci = map(int, sys.stdin.readline().split())
+        ai, bi = ai - 1, bi - 1
+        edges[i] = (ai, bi, -ci)
+
+    ans = BellmanFord(N, M, edges)
+
+    if ans is None:
+        print('inf')
+    else:
+        print(-ans)
+
+def BellmanFord(N, M, edges):
+    d = [inf] * N
+    d[0] = 0
+
+    for i in range(N - 1):
+        for (u, v, c) in edges:
+            if d[u] + c < d[v]:
+                d[v] = d[u] + c
+
+    for i in range(N):
+        for (u, v, c) in edges:
+            if d[u] + c < d[v]:
+                if v == N - 1:
+                    return None
+
+                d[v] = d[u] + c
+
+    return d[N - 1]
+
+if __name__ == '__main__':
+    solve()

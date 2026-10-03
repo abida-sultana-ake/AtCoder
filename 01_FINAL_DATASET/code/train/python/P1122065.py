@@ -1,0 +1,8 @@
+a,b=input().split()
+def f(n):
+	s=0;p=len(n)-1
+	for x in n:
+		m=int(x);s+=(m-m//5)*8**p;p-=1
+		if x in'49':break
+	return int(n)-s
+print(f(str(int(b)+1))-f(a))

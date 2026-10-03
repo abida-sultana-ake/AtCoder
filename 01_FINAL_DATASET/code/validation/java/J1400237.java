@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Main{
+  public static void main(String[] args){
+    int A,B;
+    int[] value = new int[] {-10,-5,-1,1,5,10};
+    Scanner sc = new Scanner(System.in);
+    A = sc.nextInt();
+    B = sc.nextInt();
+    Queue<Integer> q = new LinkedList<Integer>();
+    HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+    q.add(A);
+    map.put(A,0);
+    while(!q.isEmpty() && !map.containsKey(B)){
+      int now = q.poll(); //今の状態を取出し
+      for(int i=0;i<value.length;i++){
+        int next = now+value[i];
+        if(!(map.containsKey(next))){
+          q.add(next);
+          map.put(next,map.get(now)+1);
+        }
+      }
+    }
+    System.out.println(map.get(B));
+  }
+}

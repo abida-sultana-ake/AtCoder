@@ -1,0 +1,54 @@
+def solve(n, a):
+    honest = [0] * n
+    for i0 in range(2):
+        for i1 in range(2):
+            honest[0] = i0
+            honest[1] = i1
+            for i in range(1, n-1):
+                if honest[i]:
+                    if a[i] == 'o':
+                        honest[i+1] = honest[i-1]
+                    if a[i] == 'x':
+                        honest[i+1] = 1 - honest[i-1]
+                if not honest[i]:
+                    if a[i] == 'o':
+                        honest[i+1] = 1 - honest[i-1]
+                    if a[i] == 'x':
+                        honest[i+1] = honest[i-1]
+            ok = True
+            if honest[0]:
+                if honest[-1] == honest[1]:
+                    ok &= a[0] == 'o'
+                else:
+                    ok &= a[0] == 'x'
+            if not honest[0]:
+                if honest[-1] == honest[1]:
+                    ok &= a[0] == 'x'
+                else:
+                    ok &= a[0] == 'o'
+            # if i1 == 1 and not ok:
+            #     print(honest)
+
+            if honest[-1]:
+                if honest[-2] == honest[0]:
+                    ok &= a[-1] == 'o'
+                else:
+                    ok &= a[-1] == 'x'
+            if not honest[-1]:
+                if honest[-2] == honest[0]:
+                    ok &= a[-1] == 'x'
+                else:
+                    ok &= a[-1] == 'o'
+
+            if ok:
+                t = 'WS'
+                res = ''.join([t[j] for j in honest])
+                # print(honest)
+                return res
+    return -1
+
+n = int(input())
+s = input()
+
+res = solve(n, s)
+print(res)

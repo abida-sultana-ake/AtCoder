@@ -1,0 +1,1 @@
+n,*a=map(int,open(0).read().split());s=sum(a);print(max((s-x)*((s-x)%10>0)for x in[0]+a))

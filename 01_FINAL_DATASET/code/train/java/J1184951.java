@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long N = sc.nextLong();
+        int answer = Integer.MAX_VALUE;
+        for (long i = 1; i*i <= N; i++) {
+            if (N % i == 0) {
+                int F = Math.max(digitLength(i), digitLength(N / i));
+                if (answer > F) {
+                    answer = F;
+                }
+            }
+        }
+
+        System.out.println(answer);
+
+    }
+
+    private static int digitLength(long i) {
+        return Long.toString(i).length();
+    }
+
+
+}

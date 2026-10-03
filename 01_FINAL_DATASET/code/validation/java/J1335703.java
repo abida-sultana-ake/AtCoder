@@ -1,0 +1,28 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+
+
+class Main{
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int n = Integer.parseInt(br.readLine());
+		String[] a = br.readLine().split(" ");
+		int mean = 0;
+		int num = 0;
+		for(int i = 0;i < a.length;i++){
+			if (a[i].equals("0")){
+				continue;
+			}
+			num += 1;
+			mean += Integer.parseInt(a[i]);
+		}
+		if(mean % num == 0){
+			System.out.println(mean / num);
+		}else{
+			System.out.println((mean / num) + 1);
+		}
+	}
+
+}

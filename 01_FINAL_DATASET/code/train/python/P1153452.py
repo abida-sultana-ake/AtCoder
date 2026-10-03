@@ -1,0 +1,16 @@
+s = input()
+
+
+def main(s):
+    count = 0
+    prev = s[0]
+
+    for c in s:
+        if prev != c:
+            count += 1
+            prev = c
+
+    return count
+
+
+print(main(s))

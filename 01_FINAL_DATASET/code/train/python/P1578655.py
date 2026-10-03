@@ -1,0 +1,9 @@
+S = input()
+
+def function(mode):
+    if "9" in mode:
+        x = "Yes"
+    else:
+        x = "No"
+    return x
+print(function(S))

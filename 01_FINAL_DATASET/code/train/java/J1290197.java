@@ -1,0 +1,11 @@
+import java.util.*;
+class Main{
+	public static void main(String args[]) throws Exception {
+		Scanner sc=new Scanner(System.in);
+		int A=sc.nextInt(),B=sc.nextInt(),C=sc.nextInt();
+		String str="No";
+		if(C>=A&&C<=B)
+			str="Yes";
+		System.out.println(str);
+	}
+}

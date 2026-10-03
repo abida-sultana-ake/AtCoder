@@ -1,0 +1,17 @@
+import sys
+
+def main():
+    a = int(sys.stdin.readline().rstrip())
+    b = int(sys.stdin.readline().rstrip())
+
+    if a > b:
+        print("GREATER")
+    elif a == b:
+        print("EQUAL")
+    else:
+        print("LESS")
+
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())

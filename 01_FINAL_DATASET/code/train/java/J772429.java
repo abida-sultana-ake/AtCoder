@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		double b =  Math.sqrt(a);
+		int c = (int) Math.floor(b);
+//		System.out.println(a);
+//		System.out.println(b);
+//		System.out.println(c);
+//		System.out.println(c);
+//		System.out.println(d);
+		int i = c;
+		int j=0;
+		int min=a;
+		int calcmin=0;
+		while(i > 0){
+			j= (int)Math.floor(a/i);
+			calcmin = Math.abs(j-i)+(a-i*j);
+			if (calcmin < min){
+				min = calcmin;
+			}
+			i--;
+		}
+		System.out.println(min);
+	}
+
+}

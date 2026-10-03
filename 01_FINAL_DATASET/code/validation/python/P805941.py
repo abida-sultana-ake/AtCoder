@@ -1,0 +1,13 @@
+a,k=map(int, input().split())
+
+def solve(a,k):
+    TARGET = 2*10**12
+    if k==0:
+        return TARGET - a
+    n = 0
+    while a<TARGET:
+        a += 1+a*k
+        n += 1
+    return n
+
+print(solve(a,k))

@@ -1,0 +1,46 @@
+A, B, C, D, E, F = map(int, input().split())
+
+water = [100 * A, 100 * B]
+suger = [C, D]
+
+mem = {}
+water_ans = 0
+suger_ans = 0
+max_con = -1
+def dps(mem, water_sum, suger_sum):
+    global water_ans
+    global suger_ans
+    global max_con
+    if (water_sum, suger_sum) in mem:
+        return max(max_con, mem[(water_sum, suger_sum)])
+    if water_sum + suger_sum == 0:
+        mem[(water_sum, suger_sum)] = 0
+    else:
+        con = (100 * suger_sum) / (water_sum + suger_sum)
+        mem[(water_sum, suger_sum)] = con
+        if max_con < con:
+            water_ans, suger_ans = water_sum, suger_sum
+            max_con = con
+
+    for s in suger:
+        if water_sum + suger_sum + s > F:
+            continue
+        if suger_sum + s > water_sum / 100 * E:
+            continue
+        con = dps(mem, water_sum, suger_sum + s)
+        if max_con < con:
+            water_ans, suger_ans = water_sum, suger_sum + s
+            max_con = con
+
+    for w in water:
+        if water_sum + suger_sum + w > F:
+            continue
+        con = dps(mem, water_sum + w, suger_sum)
+        if max_con < con:
+            water_ans, suger_ans = water_sum + w, suger_sum
+            max_con = con
+
+    return max_con 
+
+ans = dps(mem, 0, 0)
+print(water_ans + suger_ans, suger_ans)

@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Main{
+	
+	static final Scanner s=new Scanner(System.in);
+	
+	public static void main(String[] __){
+		int w=s.nextInt(),a=s.nextInt(),b=s.nextInt();
+		if(a>b) {
+			int buf=a;
+			a=b;
+			b=buf;
+		}
+		
+		System.out.println(Math.max(b-a-w,0));
+	}
+}
+

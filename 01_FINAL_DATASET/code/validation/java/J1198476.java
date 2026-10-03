@@ -1,0 +1,39 @@
+import java.util.*;
+
+// ABC 28-C
+// http://abc028.contest.atcoder.jp/tasks/abc028_c
+
+public class Main {
+
+	public static void main (String[] args) throws java.lang.Exception {
+	    Scanner in = new Scanner(System.in);
+	    
+	    int n = in.nextInt();
+	    String s = in.next();
+	    
+	    String temp = "b";
+	    
+	    int step = 1;
+	    int answer = 0;
+	    while (true) {
+	    	if (temp.equals(s)) {
+	    		break;
+	    	}
+	    	if (temp.length() > n) {
+	    		answer = -1;
+	    		break;
+	    	}
+	    	if (step % 3 == 1) {
+	    		temp = "a" + temp + "c";
+	    	} else if (step % 3 == 2) {
+	    		temp = "c" + temp + "a";
+	    	} else {
+	    		temp = "b" + temp + "b";
+	    	}
+	    	answer++;
+	    	step++;
+	    }
+	    
+	    System.out.println(answer);
+	}
+}

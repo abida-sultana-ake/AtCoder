@@ -1,0 +1,24 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		String line = br.readLine();
+		char[] a = line.toCharArray();
+
+		for (int i = 0; i < a.length; i++) {
+
+			if (i == 0) {
+				a[0] = Character.toUpperCase(a[0]);
+			}else {
+				a[i]=Character.toLowerCase(a[i]);
+			}
+
+			System.out.print(a[i]);
+
+		}
+	}
+}

@@ -1,0 +1,34 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ * http://abc006.contest.atcoder.jp/tasks/abc006_4
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int c[] = new int[N];
+		for(int i=0; i<N; i++) c[i] = sc.nextInt();
+		sc.close();
+		
+		int dp[] = new int[N];
+		int minDp[] = new int[N];
+		for(int i=0; i<N; i++) minDp[i] =N+1;
+ 		int max = 1;
+		dp[0] = 1;
+		minDp[0] = c[0];
+		for(int p=1; p<N; p++){
+			int maxLen = -Arrays.binarySearch(minDp, c[p])-1;
+			dp[p] = maxLen+1;
+			minDp[dp[p]-1] = Math.min(minDp[dp[p]-1], c[p]);
+			max = Math.max(max, dp[p]);
+		}
+
+		System.out.println(N-max);
+
+	}
+
+}

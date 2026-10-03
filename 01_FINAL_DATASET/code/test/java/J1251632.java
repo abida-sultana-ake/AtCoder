@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main {
+	private static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		int n = sc.nextInt();
+		int t = sc.nextInt();
+		long ret = 0;
+		if (n==1) {
+			System.out.println(t);
+			return;
+		}
+		long s = sc.nextInt();
+		long e = t;
+		for (int i = 1;i < n;i++) {
+			int tmp = sc.nextInt();
+			if (tmp>e) {
+				ret += e-s;
+				s = tmp;
+				e = tmp + t;
+			} else {
+				e = tmp + t;
+			}
+		}
+		ret += e-s;
+		System.out.println(ret);
+	}
+}

@@ -1,0 +1,24 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main{
+	public static void main(String[] args)throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] strs = br.readLine().split(" ");
+		int[] nums = new int[strs.length];
+		int count = 0;
+		for(int i = 0 ; i < strs.length ; i++){
+			int d = Integer.parseInt(strs[i]);
+			nums[i] = d;
+			for(int j = 0 ; j < i ; j++){
+				int p = Integer.parseInt(strs[j]);
+				if(d == p){
+					count--;
+					break;
+				}
+			}
+			count++;
+		}
+		System.out.println(count);
+	}
+}

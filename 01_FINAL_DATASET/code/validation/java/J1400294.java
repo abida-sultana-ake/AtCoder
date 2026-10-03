@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException{
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        String buf = br.readLine();
+
+        String[] ary = buf.split(" ");
+        int A = Integer.parseInt(ary[0]);
+        int B = Integer.parseInt(ary[1]);
+
+        int def = B-A, cnt = 0;
+        while(A!=B){
+            if(def>0){
+                if(def>7) A += 10;
+                else if(def>3) A += 5;
+                else A++;
+            }else{
+                if(def<-7) A -= 10;
+                else if(def<-3) A -= 5;
+                else A--;
+            }
+            def = B-A;
+            cnt++;
+        }
+        System.out.println(cnt);
+    }
+}

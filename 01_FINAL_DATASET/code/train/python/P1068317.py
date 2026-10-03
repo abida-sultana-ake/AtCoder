@@ -1,0 +1,1 @@
+import numpy as n;i=lambda:n.fromstring(input(),sep=' ');N,A,B=i();X=n.diff(i())*A;X[X>B]=B;print(int(sum(X)))

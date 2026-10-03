@@ -1,0 +1,27 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // Here your code !
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        int[] num = new int[n];
+        for(int i = 0; i < n; i++) {
+            num[i] = Integer.parseInt(br.readLine());
+        }
+        int max = 0;
+        for (int j = 0; j < n; j++) {
+            if(num[j] > max) {
+                max = num[j];
+            }
+        }
+        int next = 0;
+        for (int l = 0; l < n; l++) {
+            if(num[l] > next && num[l] < max) {
+                next = num[l];
+            }
+        }
+        System.out.println(next);
+    }
+}

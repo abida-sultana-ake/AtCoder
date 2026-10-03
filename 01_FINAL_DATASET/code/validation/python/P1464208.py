@@ -1,0 +1,31 @@
+#! /usr/bin/env python3
+
+def main():
+    N, M = map(int, input().split())
+    A = []
+    B = []
+    d = {}
+
+    for i in range(M):
+        a, b = sorted(map(int, input().split()))
+        if b in d:
+            d[b] += [a]
+        else:
+            d[b] = [a]
+    q = [N]
+    cnt = 3
+    while q and cnt > 0:
+        cnt -= 1
+        p = q
+        q = []
+        for i in p:
+            if i == 1:
+                print('POSSIBLE')
+                return
+            if i in d:
+                q += d[i]
+    print('IMPOSSIBLE')
+    return
+        
+if __name__ == '__main__':
+    main()

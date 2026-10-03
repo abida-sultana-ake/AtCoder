@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		new Main().solve();
+	}
+	int n,m;
+	int[]u;
+	int[]v;
+	int[]l;
+	int[][]path;
+	final int INF=Integer.MAX_VALUE/2;
+	void solve(){
+		Scanner sc=new Scanner(System.in);
+		n=sc.nextInt();
+		m=sc.nextInt();
+		u=new int[m];
+		v=new int[m];
+		l=new int[m];
+		path=new int[n][n];
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<n;j++) {
+				path[i][j]=INF;
+				if(i==j)path[i][j]=0;
+			}
+		}
+		
+		for(int i=0;i<m;i++) {
+			u[i]=sc.nextInt()-1;
+			v[i]=sc.nextInt()-1;
+			l[i]=sc.nextInt();
+			path[u[i]][v[i]]=l[i];
+			path[v[i]][u[i]]=l[i];
+		}
+		
+		int min=Integer.MAX_VALUE/2;
+		for(int i=0;i<n;i++) {
+			if(path[0][i]!=INF && path[0][i]>0) {
+				int cost1=path[0][i];
+				path[0][i]=INF;
+				path[i][0]=INF;
+				int cost_all=cost1+dijkstra(i);
+				min=Math.min(min, cost_all);
+				
+				path[0][i]=cost1;
+				path[i][0]=cost1;
+			}
+		}
+		if(min==INF)System.out.println(-1);
+		else System.out.println(min);
+	}
+	
+	int dijkstra(int x) {
+		boolean[]visited=new boolean[n];
+		Arrays.fill(visited, false);
+		int[]d=new int[n];
+		for(int i=0;i<n;i++) {
+			d[i]=INF;
+		}
+		d[x]=0;
+		
+		while(true) {
+			int v=-1;
+			for(int u=0;u<n;u++) {
+				if(!visited[u] && (v==-1 || d[u]<d[v])) {
+					v=u;
+				}
+			}
+			if(v==-1)break;
+			visited[v]=true;
+			for(int u=0;u<n;u++) {
+				d[u]=Math.min(d[u], d[v]+path[v][u]);
+			}
+		}
+		return d[0];
+	}
+}

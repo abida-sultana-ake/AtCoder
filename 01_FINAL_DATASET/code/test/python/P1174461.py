@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+
+def main(N):
+    cards = [i for i in range(1, 7)]
+
+    for i in range(N):
+        first_index = i % 5
+        second_index = i % 5 + 1
+        cards[first_index], cards[second_index] = cards[second_index], cards[first_index]
+
+    for i in range(5):
+        print(cards[i], end='')
+    else:
+        print(cards[5])
+
+if __name__ == '__main__':
+    N = int(input())
+    N %= 30
+    main(N)

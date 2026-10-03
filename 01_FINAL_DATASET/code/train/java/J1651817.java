@@ -1,0 +1,94 @@
+
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class Main {
+
+    FastScanner in;
+    PrintWriter out;
+
+    public static void main(String[] args) {
+        new Main().run();
+    }
+
+    long solve() {
+        long result = 0;
+        int N = in.nextInt();
+        int[][] graph = new int[N][N];
+        boolean[][] check = new boolean[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                graph[i][j] = in.nextInt();
+                check[i][j] = true;
+            }
+        }
+
+        for (int k = 0; k < N; k++) {
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    if (graph[i][j] > graph[i][k] + graph[k][j]) {
+                        return -1;
+                    } else if (i != j && i != k && j != k && graph[i][j] == graph[i][k] + graph[k][j]) {
+                        check[i][j] = false;
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < N; i++) {
+            for (int j = i; j < N; j++) {
+                if (check[i][j]) {
+                    result += graph[i][j];
+                }
+            }
+        }
+        return result;
+    }
+
+    void run() {
+        in = new FastScanner();
+        out = new PrintWriter(System.out);
+        System.out.println(solve());
+        out.close();
+    }
+
+    public class FastScanner {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastScanner() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public FastScanner(String s) {
+            try {
+                br = new BufferedReader(new FileReader(s));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        public String nextToken() {
+            while (st == null || !st.hasMoreTokens()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                }
+            }
+            return st.nextToken();
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(nextToken());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(nextToken());
+        }
+
+        public double nextDouble() {
+            return Double.parseDouble(nextToken());
+        }
+    }
+
+}

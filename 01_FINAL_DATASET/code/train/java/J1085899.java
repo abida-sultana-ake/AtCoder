@@ -1,0 +1,23 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+/**
+ * Created by zzt on 17-1-29.
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int a;
+        for (int i = 0; i < n; i++) {
+            a = scanner.nextInt();
+            map.computeIfPresent(a,(key, oldValue) -> oldValue+1);
+            map.computeIfAbsent(a, key -> 1);
+        }
+        int ret = map.size();
+        if (ret % 2 == 0)
+            ret--;
+        System.out.println(ret);
+    }
+}

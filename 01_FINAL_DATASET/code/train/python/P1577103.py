@@ -1,0 +1,5 @@
+def solution():
+	n = int(input())
+	print('Yes' if '9' in list(str(n)) else 'No')
+
+solution()

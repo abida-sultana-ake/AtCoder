@@ -1,0 +1,24 @@
+def main():
+    N, K = map(int, input().split())
+    A = tuple(tuple(map(int, input().split())) for _ in range(N))
+
+    ans = bug(N - 1, K, A, 0)
+    if ans:
+        print('Found')
+    else:
+        print('Nothing')
+
+def bug(n, k, a, t):
+    for i in range(k):
+        xor = t ^ a[n][i]
+        if n == 0:
+            if xor == 0:
+                return True
+        else:
+            ans = bug(n - 1, k, a, xor)
+            if ans:
+                return ans
+
+    return False
+
+main()

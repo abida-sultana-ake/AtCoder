@@ -1,0 +1,19 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		int t = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
+		int r = Integer.MAX_VALUE;
+		int v = (int) Math.sqrt(t);
+		for (int i = 1; i <= v; i++) {
+			int w = t / i;
+			int s = (w - i) + (t - i * w);
+			if (s < r) {
+				r = s;
+			}
+		}
+		System.out.println(r);
+	}
+}

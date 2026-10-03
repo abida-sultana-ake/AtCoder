@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Main{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			Scanner sc=new Scanner(System.in);
+			int A=sc.nextInt();
+			int B=sc.nextInt();
+			int C=sc.nextInt();
+			int D=sc.nextInt();
+			int m1=A*B;
+			int m2=C*D;
+			if(m1>=m2){
+				System.out.println(m1);
+			}else{
+				System.out.println(m2);
+			}
+	}
+
+}

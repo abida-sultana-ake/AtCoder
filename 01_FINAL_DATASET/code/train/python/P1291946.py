@@ -1,0 +1,13 @@
+import sys
+
+def solve():
+    n = int(input())
+    k = int(input())
+
+    if 2*k > n:
+        print('NO')
+    else:
+        print('YES')
+
+if __name__ == '__main__':
+    solve()

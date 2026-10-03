@@ -1,0 +1,41 @@
+
+import java.io.*;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
+public class Main {
+
+ 
+    
+    public static void main(String[] args) {
+
+	Scanner sc = new Scanner(System.in);
+
+	int ar[]=new int[1000002];
+	
+	int n=sc.nextInt();
+	
+	for (int i = 0; i < n; i++) {
+	    ar[sc.nextInt()]++;
+	    ar[sc.nextInt()+1]--;
+	    
+	}
+	
+	for (int i = 0; i < 1000001; i++) {
+	    
+		ar[i+1]+=ar[i];
+	    
+	}
+	int m = 0;
+	for (int i = 0; i < 1000001; i++) {
+	    	if(ar[i]>m)
+		m=ar[i];
+	    
+	}
+	
+	
+	System.out.println(m);
+    }
+
+
+}

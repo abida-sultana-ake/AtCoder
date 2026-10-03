@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int[] N = new int[5];
+		N[0] = sc.nextInt(); N[1] = sc.nextInt(); N[2] = sc.nextInt(); N[3] = sc.nextInt(); N[4] = sc.nextInt();
+		sc.close();
+		ArrayList<Integer> a = new ArrayList<Integer>();
+		for(int i=0; i<5; i++) {
+			for(int j=i+1; j<5; j++) {
+				for(int k=j+1; k<5; k++) {
+					a.add(N[i] + N[j] + N[k]);
+				}
+			}
+		}
+		Collections.sort(a);
+		System.out.println(a.get(7));
+	}
+
+}

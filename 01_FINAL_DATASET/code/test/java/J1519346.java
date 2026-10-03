@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		int b = sc.nextInt();		
+		String aa = String.valueOf(a);
+		String bb = String.valueOf(b);
+		String cc = aa + bb;		
+		int i = Integer.parseInt(cc);
+		System.out.println(i * 2);
+	}
+}

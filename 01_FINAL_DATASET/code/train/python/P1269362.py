@@ -1,0 +1,7 @@
+def main():
+    A = int(input())
+
+    ans = int((A / 2) ** 2)
+    print(ans)
+
+main()

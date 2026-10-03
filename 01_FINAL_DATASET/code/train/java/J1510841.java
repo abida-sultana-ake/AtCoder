@@ -1,0 +1,26 @@
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class Main {
+	public static void main(String[] args) {
+		TreeSet<Integer> ts = new TreeSet<>();
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		int a = scan.nextInt();
+		int b = scan.nextInt();
+		int k = scan.nextInt();
+
+		ts.add(a);
+		ts.add(b);
+		for (int i = 0; i < k; i++) {
+			ts.add(scan.nextInt());
+
+		}
+		if (ts.size() < k + 2) {
+			System.out.println("NO");
+		} else {
+			System.out.println("YES");
+		}
+
+	}
+}

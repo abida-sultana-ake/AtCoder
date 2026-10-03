@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 Scanner s = new Scanner(System.in);
+		 long point = s.nextLong();
+		 long divisorBy11 = point/11*2;
+		 long remainder = point%11;
+		 if(remainder ==0){
+			 System.out.println(divisorBy11);
+		 }else if(remainder <=6){
+			 System.out.println(divisorBy11+1);
+		 }else{
+			 System.out.println(divisorBy11+2);
+		 }
+	}
+
+}

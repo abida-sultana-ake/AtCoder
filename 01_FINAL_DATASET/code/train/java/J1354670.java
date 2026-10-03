@@ -1,0 +1,10 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String args[] ) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int H1 = sc.nextInt();
+        int H2 = sc.nextInt();
+        System.out.println(H1 - H2);
+    }
+}

@@ -1,0 +1,16 @@
+import java.util.*;
+public class Main {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+
+		String s = sc.next();
+        String[] sp = s.split("");
+        int i = 0;
+        for(String spr : sp){
+            if(i%2 == 0){
+                System.out.print(spr);
+            }
+            i++;
+        }
+	}
+}

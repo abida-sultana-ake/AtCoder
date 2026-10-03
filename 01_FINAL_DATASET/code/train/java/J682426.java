@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String[] vals = scanner.nextLine().split(" ");
+		scanner.close();
+		if (vals[0].toLowerCase().equals(vals[1])) {
+			System.out.println("Yes");
+		} else {
+			System.out.println("No");
+		}
+	}
+}

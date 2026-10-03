@@ -1,0 +1,14 @@
+import sys
+
+def solve():
+    abc = [(int(input()), i) for i in range(3)]
+    abc.sort(reverse=True)
+    rank = [0] * 3
+
+    for i, (a, j) in enumerate(abc, start=1):
+        rank[j] = i
+
+    print(*rank, sep='\n')
+
+if __name__ == '__main__':
+    solve()

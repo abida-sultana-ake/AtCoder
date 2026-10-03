@@ -1,0 +1,1 @@
+f=lambda:map(int, input().split());a,b=f();c=list(f());d=sum(c);print(sum(d-(c[x]+c[-x-1])*(a-b-x) for x in range(a-b+1)))

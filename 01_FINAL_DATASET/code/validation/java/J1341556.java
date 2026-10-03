@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args){
+		Scanner in = new java.util.Scanner(System.in);
+		String num = in.next();
+		num += in.next();
+		num += in.next();
+		int a = Integer.parseInt(num);
+		if(a%4==0){
+			System.out.println("YES");
+		}else{
+			System.out.println("NO");
+		}
+	}
+}

@@ -1,0 +1,25 @@
+import java.util.*;
+
+/**
+ * 
+ * 
+ * @author stmasa2016
+ *
+ */
+public class Main {
+
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		String in = sc.nextLine();
+		String posStr = sc.nextLine();
+		int pos = Integer.parseInt(posStr);
+		String answer = in.substring(pos -1 , pos);
+		System.out.println(answer);
+
+		sc.close();
+	}
+	
+
+}

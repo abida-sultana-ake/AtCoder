@@ -1,0 +1,40 @@
+import math,string,itertools,fractions,heapq,collections,re,array,bisect,sys,random,time,copy,functools
+
+sys.setrecursionlimit(10**7)
+inf = 10**20
+mod = 10**9 + 7
+
+def LI(): return [int(x) for x in sys.stdin.readline().split()]
+def LI_(): return [int(x)-1 for x in sys.stdin.readline().split()]
+def LF(): return [float(x) for x in sys.stdin.readline().split()]
+def LS(): return sys.stdin.readline().split()
+def I(): return int(sys.stdin.readline())
+def F(): return float(sys.stdin.readline())
+def S(): return input()
+
+
+def main():
+    n = I()
+    a = sorted([10**i+1 for i in range(19)], reverse=True)
+    def f(i,t):
+        if i == 18:
+            if t > 18 or t%2 == 1:
+                return []
+            return [[t//2]]
+        if t > a[i] * 20:
+            return []
+        res = []
+        for j in range(10):
+            if a[i]*j > t:
+                break
+            res += [[j] + k for k in f(i+1, t-a[i]*j)]
+
+        return res
+
+    r = f(0,n)
+    return '\n'.join([str(len(r))] + [str(int(''.join(map(str,c)))) for c in r])
+
+
+
+
+print(main())

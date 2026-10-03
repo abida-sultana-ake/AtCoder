@@ -1,0 +1,44 @@
+import java.util.*;
+
+
+public class Main {
+	
+	private void doit(){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			int n = sc.nextInt();
+			int [] data = new int[n];
+			for(int i = 0; i < n; i++){
+				data[i] = sc.nextInt();
+			}
+			int count = 0;
+			for(int i = 0; i < n-1; i++){
+				if(data[i] == i + 1){
+					int temp = data[i];
+					data[i] = data[i+1];
+					data[i+1] = temp;
+					count++;
+				}
+			}
+			if(data[n-1] == n){
+				int temp = data[n-1];
+				data[n-2] = data[n-1];
+				data[n-1] = temp;
+				count++;
+			}
+			System.out.println(count);
+			
+		}
+	}
+
+
+
+	private void debug(Object... o) {
+		System.out.println("debug = " + Arrays.deepToString(o));
+	}
+
+	public static void main(String[] args) {
+		new Main().doit();
+	}
+
+}

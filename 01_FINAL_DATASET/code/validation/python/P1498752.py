@@ -1,0 +1,23 @@
+R , C = map(int , input().split())
+sy , sx = map(int , input().split())
+gy , gx = map(int , input().split())
+maze = [list(input()) for i in range(R)]
+maze[sx-1][sy-1] = 0
+que = [[sx-1, sy-1]]
+def BFS(gy, gx, maze , que):
+        
+        while True:
+             
+            n = que.pop(0)
+            
+            adjacent = [[n[0]+1,n[1]] , [n[0],n[1]-1] , [n[0]-1,n[1]] , [n[0],n[1]+1]]
+            for aj in adjacent:
+                if maze[aj[0]][aj[1]] == ".":
+                    maze[aj[0]][aj[1]] = maze[n[0]][n[1]] + 1
+                    que.append([aj[0],aj[1]])
+
+            if maze[gy -1][gx-1] != ".":
+                print(maze[gy-1][gx-1])
+                break
+            
+BFS(gy, gx, maze, que)

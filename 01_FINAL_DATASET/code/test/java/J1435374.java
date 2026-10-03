@@ -1,0 +1,16 @@
+import java.util.*;
+public class Main{
+  public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int a = 100;
+    int[] T = new int[n];
+
+
+    for (int i = 0; i<T.length; i++){
+      T[i] = sc.nextInt();
+      a = Math.min(T[i], a);
+    }
+    System.out.println(a);
+  }
+}

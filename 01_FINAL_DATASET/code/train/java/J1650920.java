@@ -1,0 +1,16 @@
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Main {
+	public static void main(String[] args) {
+		final Scanner sc = new Scanner(System.in);
+		String s = sc.next();
+		char[] num = s.toCharArray();
+		Set<Integer> set = new HashSet<Integer>();
+		for(int a : num) {
+			set.add(a);
+		}
+		System.out.println(set.size() == 1 ? "SAME": "DIFFERENT");
+	}
+}

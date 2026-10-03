@@ -1,0 +1,11 @@
+def solve(H,W):
+    result = 0
+    if H > 1:
+        result += W * (H-1)
+    if W > 1:
+        result += H * (W-1)
+    return result
+
+
+H,W = map(int, input().split())
+print(solve(H,W))

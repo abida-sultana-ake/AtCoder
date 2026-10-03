@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+/**
+ * http://abc014.contest.atcoder.jp/tasks/abc014_2
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		final int N = sc.nextInt();
+		final int X = sc.nextInt();
+		int[] a = new int[N];
+		for(int i=0; i<N; i++) a[i] = sc.nextInt();
+		sc.close();
+		
+		int ans = 0;
+		int current = 0;
+		for(int i=X; i>0; i=i/2){
+			if(i%2==1) ans += a[current];
+			current++;
+		}
+		
+		System.out.println(ans);
+
+	}
+
+}

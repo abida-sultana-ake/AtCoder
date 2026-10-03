@@ -1,0 +1,25 @@
+import java.util.*;
+public class Main {
+	private static Scanner sc;
+	public static void main(String[] args){
+		sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int[] A = new int[N];
+		int i;
+		double sum = 0;
+		double ave = 0;
+		for(i = 0; i < N; i++){
+			A[i] = sc.nextInt();
+		}
+		for(i = 0; i < N; i++){
+			if(A[i] > 0){
+				sum = sum + A[i];
+				ave++;
+			}
+		}
+		sum = Math.ceil(sum/ave);
+		System.out.println((int)sum);
+		
+	}
+
+}

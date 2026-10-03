@@ -1,0 +1,12 @@
+def main():
+    S = str(input())
+    N = int(input())
+
+    name = []
+    for i in S:
+        for j in S:
+            name.append(i + j)
+
+    print(name[N-1])
+
+main()

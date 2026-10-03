@@ -1,0 +1,18 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		Scanner scanner = new Scanner(System.in);
+		String string = scanner.nextLine();
+		int n = scanner.nextInt() - 1;
+		char[] cs = new char[5];
+		for(int i = 0; i < 5; i++){
+			cs[i] = string.charAt(i);
+		}
+		int a = n / 5;
+		int b = n % 5;
+		System.out.println(cs[a]+ "" +cs[b]);
+	}
+}

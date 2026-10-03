@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		long a = scan.nextLong();
+		long b = scan.nextLong();
+		long x = scan.nextLong();
+		
+		long count = 0;
+		if(a % x == 0) {
+			count = b / x - a / x + 1;
+		}else {
+			count = b / x - a / x;
+		}
+		System.out.println(count);
+	}
+}

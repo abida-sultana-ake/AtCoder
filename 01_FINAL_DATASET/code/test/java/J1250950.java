@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int T = scan.nextInt();
+        int pushSwitchTime = 0;
+        int pushSwitchTimePrevious = 0;
+        int totalTime = 0;
+        
+        for(int i = 0; i < N; i++) {
+            if(i != 0) {
+                pushSwitchTimePrevious = pushSwitchTime;
+                pushSwitchTime = scan.nextInt();
+                
+                if(pushSwitchTime - pushSwitchTimePrevious < T) {
+                    totalTime += pushSwitchTime - pushSwitchTimePrevious;
+                } else {
+                    totalTime += T;
+                }
+            } else {
+                pushSwitchTime = scan.nextInt();
+                totalTime += T;
+            }
+        }
+        
+        System.out.println(totalTime);
+    }
+}

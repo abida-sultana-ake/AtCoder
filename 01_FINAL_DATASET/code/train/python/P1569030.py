@@ -1,0 +1,1 @@
+print((lambda s:next((c for c in map(chr,range(97,123))if c not in s),"None"))(input()))

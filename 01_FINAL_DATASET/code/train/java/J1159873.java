@@ -1,0 +1,23 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		String[] s = new String[n];
+		for(int i=0;i<n;i++){
+			String dummy = scanner.next();
+			StringBuffer sb = new StringBuffer(dummy);
+	        s[i] = sb.reverse().toString();
+		}
+		Arrays.sort(s);
+		for(int i=0;i<n;i++){
+			StringBuffer sbs = new StringBuffer(s[i]);
+			System.out.println(sbs.reverse().toString());
+		}
+
+	}
+
+}

@@ -1,0 +1,18 @@
+import java.io.InputStreamReader;
+import java.util.Scanner;
+ 
+public class Main {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(new InputStreamReader(System.in));
+ 
+		int n = sc.nextInt();
+		int s = sc.nextInt();
+ 
+                if(n%s==0){
+                        System.out.println("0");
+                } else {
+		System.out.println(s-(n%s));
+                }
+	}
+ 
+}

@@ -1,0 +1,46 @@
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+/**
+ * http://abc011.contest.atcoder.jp/tasks/abc011_3
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		Set<Integer> ng = new HashSet<>();
+		for(int i=0; i<3; i++) ng.add(sc.nextInt());
+		sc.close();
+		
+		boolean ans = true;
+		if(ng.contains(n)){
+			ans = false;
+		}else{
+			int count = 0;	
+			while(n>0){
+				if(!ng.contains(n-3)){
+					n = n-3;
+				}else if(!ng.contains(n-2)){
+					n = n-2;
+				}else if(!ng.contains(n-1)){
+					n = n-1;
+				}else{
+					ans = false;
+					break;
+				}	
+				if(++count > 100){
+					ans = false;
+					break;
+				}
+			}
+		}
+		
+		System.out.println( ans ? "YES":"NO");
+	
+
+	}
+
+}

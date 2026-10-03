@@ -1,0 +1,20 @@
+import java.math.BigDecimal;
+import java.util.Scanner;
+ 
+public class Main {
+ 
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String str=s.next();
+		long result=0;
+		
+		for(int i=0;i<str.length();i++){
+			int no = Integer.parseInt(""+str.charAt(i));
+			for(int j=0;j<str.length()-i;j++){
+				result += no*Math.pow(10, j)*Math.pow(2, i)*Math.pow(2, Math.max(str.length()-2-j-i,0));
+			}
+		}
+			
+		System.out.println(result);
+	}
+}

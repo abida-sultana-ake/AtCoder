@@ -1,0 +1,18 @@
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] ar)
+	{
+		Scanner sc = new Scanner(System.in);
+		sc.useDelimiter(",");
+
+		String a, b, c;
+
+		a = sc.next();
+		b = sc.next();
+		c = sc.next();
+
+		System.out.println(a + " " + b  + " "  + c);
+	}
+}

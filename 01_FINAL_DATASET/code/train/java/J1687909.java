@@ -1,0 +1,80 @@
+import java.util.*;
+
+class Main{
+
+   public static void main(String[] args){
+
+       Scanner sc = new Scanner(System.in);
+      
+       int N = sc.nextInt();       
+       int M = sc.nextInt();
+       
+       int X = sc.nextInt();
+       int Y = sc.nextInt();
+       
+       int a[] = new int[N];
+       int b[] = new int[M];
+       
+       for(int i = 0;i < N;i++){
+          a[i] = sc.nextInt();
+       }
+       
+       for(int i = 0;i < M;i++){
+           b[i] = sc.nextInt();           
+       }
+       
+       int time = 0;
+       int aindex = 0;
+       int bindex = 0;
+       
+       boolean aflag = false;
+       boolean bflag = false;
+       
+       int ans = 0;
+       
+       while(true){
+           time = a[aindex] + X;
+           bindex = lower_bound(b,time);
+           
+           if(bindex >= M){
+               break;
+           }
+           
+           time = b[bindex] + Y;
+           
+           aindex = lower_bound(a,time);
+           
+           ans++;
+           
+           if(aindex >= N){
+               break;
+           }
+           
+       }
+       
+       System.out.println(ans);
+   }   
+
+   static int lower_bound(int a[],int time){
+       
+       int l = 0;
+       int r = a.length;
+       
+       while(l < r){
+           int mid = (l+r)/2;
+           
+           if(a[mid] >= time){
+               r = mid;
+           }else{
+               l = mid + 1;
+           }                      
+       }
+       
+       return l;
+       
+       
+   }
+
+}
+        
+       

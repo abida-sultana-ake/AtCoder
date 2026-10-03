@@ -1,0 +1,13 @@
+def main():
+    i = int(input())
+    if i == 100:
+        print("Perfect")
+    elif i >= 90:
+        print("Great")
+    elif i >= 60:
+        print("Good")
+    else:
+        print("Bad")
+
+if __name__ == "__main__":
+    main()

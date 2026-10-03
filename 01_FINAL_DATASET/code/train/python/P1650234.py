@@ -1,0 +1,32 @@
+def main():
+
+    N, M = map(int, input().split(' '))
+    pairs = [list(map(int, input().split(' '))) for i in range(M)]
+    max_group = 1
+    if M == 0:
+        print(max_group)
+        return
+
+    for i in range(1, 2 ** N):
+        group = bit_to_group(i, N)
+        if len(group) > max_group and is_valid_group(pairs, group):
+            max_group = len(group)
+    print(max_group)
+
+def is_valid_group(pairs, group):
+    for i in range(len(group)):
+        for j in range(i + 1, len(group)):
+            if [group[i] + 1, group[j] + 1] not in pairs and [group[j] + 1, group[i] + 1] not in pairs:
+                return False
+    return True
+
+def bit_to_group(b, N):
+    group = []
+    for i in range(N):
+        if b % 2 == 1:
+            group.append(i)
+        b = b >> 1
+    return group
+
+if __name__ == '__main__':
+    main()

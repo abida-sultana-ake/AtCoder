@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+/**
+ * http://abc018.contest.atcoder.jp/tasks/abc018_1
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		final int N=100;
+		final int M = 3;
+		int[] s = new int[N+1];
+		s[sc.nextInt()] = 1;
+		s[sc.nextInt()] = 2;
+		s[sc.nextInt()] = 3;
+		sc.close();
+		
+		int[] ans = new int[M];
+		int rank = 1;
+		for(int i=N; i>=1; i--){
+			if(s[i]>0) ans[s[i]-1] = rank++;
+		}
+		
+		for(int a:ans){
+			System.out.println(a);
+		}
+
+	}
+
+}

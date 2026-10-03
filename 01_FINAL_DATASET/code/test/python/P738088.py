@@ -1,0 +1,35 @@
+import numpy
+
+
+def moore(P, x):
+    hoge = P / pow(2.0, x / 1.5) + x
+    return hoge
+
+
+def main():
+    P = float(input())
+    phi = (1.0 + numpy.sqrt(5)) / 2
+
+    high = pow(10.0, 10)
+    prevh = high
+    low = 0.0
+    prevl = low
+    while high > low:
+        xlow = (low * phi + high) / (1.0 + phi)
+        xhigh = (low + high * phi) / (1.0 + phi)
+
+        ylow = moore(P, xlow)
+        yhigh = moore(P, xhigh)
+        if ylow > yhigh:
+            low = xlow
+        else:
+            high = xhigh
+        if prevl == low and prevh == high:
+            break;
+        prevl = low
+        prevh = high
+    print(moore(P, high))
+
+
+if __name__ == '__main__':
+    main()

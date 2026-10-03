@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args){
+	
+		Scanner sc = new Scanner(System.in);
+		long N = sc.nextLong();
+
+		int sqrtN = (int) Math.sqrt(N);
+		boolean isFind = false;
+		while(!isFind){
+			if(N % sqrtN == 0){
+				isFind = true;
+				break;
+			}
+			sqrtN--;
+		}
+		System.out.println( String.valueOf(N / sqrtN).length() );		
+	}
+}

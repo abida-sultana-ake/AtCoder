@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    int M = sc.nextInt();
+    int x = -1;
+    int y = -1;
+    int z = -1;
+    // 老人が0人の場合
+    for(int i = 0; i <= N; i++) {
+      if(2 * i + 4 * (N - i) == M) {
+        x = i;
+        y = 0;
+        z = N - i;
+        break;
+      }
+    }
+    // 老人が1人の場合
+    for(int i = 0; i < N; i++) {
+      if(2 * i + 4 * (N - i - 1) == M - 3) {
+        x = i;
+        y = 1;
+        z = N - i - 1;
+        break;
+      }
+    }
+    System.out.println(x + " " + y + " " + z);
+  }
+}

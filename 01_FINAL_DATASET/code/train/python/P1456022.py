@@ -1,0 +1,1 @@
+f=lambda:map(int,input().split());r,c=f();x,y=f();d,l=f();p=lambda a:a[0]*p(a[1:])if a else 1;C=lambda n,r:0 if n<r else p(range(n-r+1,n+1))//p(range(1,r+1));s=d+l;print((r-x+1)*(c-y+1)*C(s,d)*(C(x*y,s)-C(x*y-x,s)*2-C(x*y-y,s)*2+C(x*(y-2),s)+C((x-2)*y,s)+C(x*y-x-y+1,s)*4-C((x-1)*(y-2),s)*2-C((x-2)*(y-1),s)*2+C(0 if x==y==1 else(x-2)*(y-2),s))%1000000007)

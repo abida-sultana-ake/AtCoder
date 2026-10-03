@@ -1,0 +1,10 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String args[]) {
+        try (Scanner in = new Scanner(System.in)) {
+            int N = in.nextInt();
+            System.out.println(Integer.toString(N, 10).contains("9") ? "Yes" : "No");
+        }
+    }
+}

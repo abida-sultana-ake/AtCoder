@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+
+		final int X = s.nextInt();
+		final int Y = s.nextInt();
+		s.close();
+
+		System.out.println( X>Y ? X : Y );
+
+	}
+
+}

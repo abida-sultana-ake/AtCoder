@@ -1,0 +1,17 @@
+
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt(), ans=0;
+		boolean Even=false, nine=false;
+		if(n%2 == 0) Even = true;
+		if(n%10 == 9) nine = true;
+		if(Even == true ) ans = n-1;
+		else if(Even == false) ans = n+1;
+		System.out.println(ans);
+	}
+
+}

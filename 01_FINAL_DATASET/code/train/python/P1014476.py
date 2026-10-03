@@ -1,0 +1,1 @@
+s=input();print(sum(eval(''.join(x+y for x,y in zip(s, t))+s[-1])for t in __import__('itertools').product(['','+'],repeat=len(s)-1)))

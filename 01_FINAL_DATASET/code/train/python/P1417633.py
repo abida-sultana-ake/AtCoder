@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+
+def main():
+    W, a, b = map(int, input().split())
+    i, j, k, l = a, a + W, b, b + W
+    if (i <= k <= j) or (i <= l <= j) or (k <= i <= l) or (k <= j <= l):
+        print(0)
+    else:
+        print(min([abs(k - i), abs(k - j), abs(l - i), abs(l - j)]))
+
+
+if __name__ == '__main__':
+    main()

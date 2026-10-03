@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class Main {                        
+  public static void main(String[] args) {   
+     
+    Scanner sc = new Scanner(System.in);                                                                                     
+
+    int N   = sc.nextInt();
+    int NG1 = sc.nextInt();
+    int NG2 = sc.nextInt();
+    int NG3 = sc.nextInt();
+    
+    if(N == NG1 || N == NG2 || N == NG3){
+        System.out.println("NO");
+        return;
+    }      
+    
+    for(int i = 0;i < 100;i++){                                
+        
+        N = N - 3;
+        
+        // -3 NG
+        if(N == NG1 || N == NG2 || N == NG3){
+            N++;
+        }
+        
+        // -2 NG
+        if(N == NG1 || N == NG2 || N == NG3){
+            N++;
+        }        
+
+        // -1 NG        
+        if(N == NG1 || N == NG2 || N == NG3){
+            System.out.println("NO");
+            return;
+        }        
+        
+        if(N <= 0){
+            System.out.println("YES");
+            return;
+        }
+        
+    }
+    
+    System.out.println("NO");    
+    
+ }             
+}

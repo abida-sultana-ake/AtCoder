@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    long[] t = new long[N];
+    long[] a = new long[N];
+    for(int i = 0; i < N; i++) {
+      t[i] = sc.nextLong();
+      a[i] = sc.nextLong();
+    }
+    // (i+1)回目の最小票数を(t[i]*dp[i],a[i]*dp[i])とする
+    long[] dp = new long[N];
+    dp[0] = 1;
+    for(int i = 1; i < N; i++) {
+      long takahashi = (t[i - 1] * dp[i - 1] + t[i] - 1) / t[i];
+      long aoki = (a[i - 1] * dp[i - 1] + a[i] - 1) / a[i];
+      dp[i] = Math.max(takahashi, aoki); 
+    }
+    System.out.println((t[N - 1] + a[N - 1]) * dp[N - 1]);
+  }
+}

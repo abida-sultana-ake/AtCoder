@@ -1,0 +1,38 @@
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		//部下リストの作成
+		Map<Integer, ArrayList<Integer>> map = new HashMap<Integer, ArrayList<Integer>>();
+		for(int i = 0 ; i < n ; i++) {
+ 			map.put(i, new ArrayList<Integer>());
+ 		}
+ 		for(int i = 1 ; i < n ; i++) {
+ 			int boss = sc.nextInt() - 1;
+ 			ArrayList<Integer> list = map.get(boss);
+ 			list.add(i);
+ 			map.put(boss, list);
+ 		}
+ 		int[] money = new int[n];
+ 		for(int i = n - 1 ; i >= 0 ; i--) {
+ 			ArrayList<Integer> list = map.get(i);
+ 			if(list.size() == 0) {
+ 				money[i] = 1;
+ 			} else{
+ 				int max = -1; int min = 1001001001;
+ 				for(int j : list) {
+ 					max = Math.max(max, money[j]);
+ 					min = Math.min(min, money[j]);
+ 				}
+ 				money[i] = max + min + 1;
+ 			}
+ 		}
+ 		System.out.println(money[0]);
+	}
+}

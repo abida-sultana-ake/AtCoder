@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		long a = scan.nextLong();
+		long b = scan.nextLong();
+		long c = scan.nextLong();
+		long x = 1000000007;
+		System.out.println((((a * b) % x) * (c % x)) % x);
+
+	}
+}

@@ -1,0 +1,27 @@
+import java.util.*;
+
+// ABC 22-C
+// http://abc022.contest.atcoder.jp/tasks/abc022_c
+
+public class Main {
+
+	static int[][] map;
+	
+	public static void main (String[] args) throws java.lang.Exception {
+	    Scanner in = new Scanner(System.in);
+	    
+	    int a = in.nextInt();
+	    int b = in.nextInt();
+	    int c = in.nextInt();
+	    
+	    if (a + b == c && a - b == c) {
+	    	System.out.println("?");
+	    } else if (a + b == c) {
+	    	System.out.println("+");
+	    } else if (a - b == c) {
+	    	System.out.println("-");
+	    } else {
+	    	System.out.println("!");
+	    }
+	}
+}

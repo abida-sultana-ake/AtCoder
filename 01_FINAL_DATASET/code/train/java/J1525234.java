@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int me = sc.nextInt();
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int farA = Math.abs(me - a);
+		int farB = Math.abs(me - b);
+		System.out.println(farA < farB ? "A" : "B");
+	}
+}

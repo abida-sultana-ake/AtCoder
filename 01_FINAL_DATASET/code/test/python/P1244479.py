@@ -1,0 +1,25 @@
+n = int(input())
+alist = list(map(int, input().split()))
+
+is_positive = True
+operation_count = 0
+
+
+def run(is_positive):
+    tmp_sum = 0
+    operation_count = 0
+    for a in alist:
+        tmp_sum += a
+        if is_positive:
+            if tmp_sum <= 0:
+                operation_count += -tmp_sum + 1
+                tmp_sum = 1
+        else:
+            if tmp_sum >= 0:
+                operation_count += tmp_sum + 1
+                tmp_sum = -1
+        is_positive = not is_positive
+    return operation_count
+
+
+print(min(run(True), run(False)))

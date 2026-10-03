@@ -1,0 +1,6 @@
+a,b,c=map(int,input().split())
+n=min(a,b)
+m=max(a,b)
+x=int(c/n)
+x+=int((c-x*n)/m)
+print(x)

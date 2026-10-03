@@ -1,0 +1,17 @@
+S=input()
+# S=list(S)
+def solve(S):
+	while(S!=""):
+		if len(S)>=7 and S[-7:]=="dreamer":
+			S=S[:-7]
+		elif len(S)>=6 and S[-6:]=="eraser":
+			S=S[:-6]
+		elif len(S)>=5 and S[-5:]=="dream" :
+			S=S[:-5]
+		elif len(S)>=5 and S[-5:]=="erase":
+			S=S[:-5]
+		else:
+			return("NO")
+	return("YES")
+
+print(solve(S))

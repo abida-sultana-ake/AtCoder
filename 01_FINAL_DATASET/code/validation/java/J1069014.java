@@ -1,0 +1,33 @@
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader input =new BufferedReader (new InputStreamReader (System.in));
+		String strn = input.readLine( );
+		int n = Integer.parseInt(strn);
+
+		String str = input.readLine( );
+		String[] s = str.split("");
+
+		int answer = 0;
+		int sum = 0;
+
+		for(int i=0; i<n; i++){
+			if(s[i].equals("I")){
+				sum = sum+1;
+				if(answer<sum){
+					answer = sum;
+				}
+			}else {
+				sum = sum-1;
+			}
+		}
+
+		System.out.println(answer);
+	}
+
+}

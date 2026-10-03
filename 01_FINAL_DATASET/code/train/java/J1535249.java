@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+/**
+ * http://abc028.contest.atcoder.jp/tasks/abc028_b
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		final String S = sc.next();
+		sc.close();
+		
+		int[] ans = new int[6];
+		
+		for(char c: S.toCharArray()){
+			ans[c-'A']++;
+		}
+		
+		for(int i=0; i<6; i++){
+			System.out.print(ans[i]);
+			System.out.print( i<5 ? " ":"\n");
+		}
+
+	}
+
+}

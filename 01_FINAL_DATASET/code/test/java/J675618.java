@@ -1,0 +1,173 @@
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.*;
+import java.util.Map.Entry;
+ 
+public class Main {
+	
+	public static final long INF = Long.MAX_VALUE / 2 - 1;
+	
+	public static class Walk implements Comparable<Walk> {
+		int node;
+		long time;
+		
+		public Walk(int node, long time){
+			this.node = node;
+			this.time = time;
+		}
+
+		@Override
+		public int compareTo(Walk o) {
+			return Long.compare(this.time, o.time);
+		}
+	}
+	
+	public static void main(String[] args) {
+		final Scanner sc = new Scanner(System.in);
+		
+		final int N = sc.nextInt();
+		final int M = sc.nextInt();
+		final long T = sc.nextLong();
+		
+		long[] moneys = new long[N];
+		for(int i = 0; i < N; i++){
+			moneys[i] = sc.nextLong();
+		}
+		
+		ArrayList<HashMap<Integer, Long>> forward_adj  = new ArrayList<HashMap<Integer, Long>>();
+		ArrayList<HashMap<Integer, Long>> backward_adj = new ArrayList<HashMap<Integer, Long>>();
+		for(int i = 0; i < N; i++){
+			forward_adj.add(new HashMap<Integer, Long>());
+			backward_adj.add(new HashMap<Integer, Long>());
+		}
+		
+		for(int i = 0; i < M; i++){
+			final int a = sc.nextInt() - 1;
+			final int b = sc.nextInt() - 1;
+			
+			final long c = sc.nextLong();
+			
+			if(!forward_adj.get(a).containsKey(b)){
+				forward_adj.get(a).put(b, INF);
+			}
+			forward_adj.get(a).put(b, Math.min(forward_adj.get(a).get(b), c));
+			
+			if(!backward_adj.get(b).containsKey(a)){
+				backward_adj.get(b).put(a, INF);
+			}
+			backward_adj.get(b).put(a, Math.min(backward_adj.get(b).get(a), c));
+		}
+		
+		long[] from_0_node = new long[N];
+		{
+			Arrays.fill(from_0_node, INF);
+			from_0_node[0] = 0;
+			
+			PriorityQueue<Walk> queue = new PriorityQueue<Walk>();
+			queue.add(new Walk(0, 0));
+			
+			while(!queue.isEmpty()){
+				final Walk walk = queue.poll();
+				
+				if(from_0_node[walk.node] < walk.time){ continue; }
+				
+				for(final Entry<Integer, Long> entry : forward_adj.get(walk.node).entrySet()){
+					final int next = entry.getKey();
+					final long next_time = from_0_node[walk.node] + entry.getValue();
+					
+					if(from_0_node[next] <= next_time){ continue; }
+
+					from_0_node[next] = next_time;
+					queue.add(new Walk(next, next_time));
+				}
+			}
+		}
+		
+		long[] to_0_node = new long[N];
+		{
+			Arrays.fill(to_0_node, INF);
+			to_0_node[0] = 0;
+			
+			PriorityQueue<Walk> queue = new PriorityQueue<Walk>();
+			queue.add(new Walk(0, 0));
+			
+			while(!queue.isEmpty()){
+				final Walk walk = queue.poll();
+				
+				if(to_0_node[walk.node] < walk.time){ continue; }
+				
+				for(final Entry<Integer, Long> entry : backward_adj.get(walk.node).entrySet()){
+					final int next = entry.getKey();
+					final long next_time = to_0_node[walk.node] + entry.getValue();
+					
+					if(to_0_node[next] <= next_time){ continue; }
+
+					to_0_node[next] = next_time;
+					queue.add(new Walk(next, next_time));
+				}
+			}
+		}
+		
+		long max = Long.MIN_VALUE;
+		for(int purpose_node = 0; purpose_node < N; purpose_node++){
+			if(from_0_node[purpose_node] >= INF || to_0_node[purpose_node] >= INF){ continue; }
+			
+			final long RTT = from_0_node[purpose_node] + to_0_node[purpose_node];
+			final long free = T - RTT;
+			
+			max = Math.max(max, moneys[purpose_node] * free);
+		}
+		
+		System.out.println(max);
+	}
+ 
+	public static class Scanner implements Closeable {
+		private BufferedReader br;
+		private StringTokenizer tok;
+ 
+		public Scanner(InputStream is) {
+			br = new BufferedReader(new InputStreamReader(is));
+		}
+ 
+		private void getLine() {
+			try {
+				while (!hasNext()) {
+					tok = new StringTokenizer(br.readLine());
+				}
+			} catch (IOException e) { /* ignore */
+			}
+		}
+ 
+		private boolean hasNext() {
+			return tok != null && tok.hasMoreTokens();
+		}
+ 
+		public String next() {
+			getLine();
+			return tok.nextToken();
+		}
+ 
+		public int nextInt() {
+			return Integer.parseInt(next());
+		}
+ 
+		public long nextLong() {
+			return Long.parseLong(next());
+		}
+ 
+		public double nextDouble() {
+			return Double.parseDouble(next());
+		}
+ 
+		public void close() {
+			try {
+				br.close();
+			} catch (IOException e) { /* ignore */
+			}
+		}
+	}
+}

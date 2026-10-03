@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Main {
+	
+    public static void main(String[]args){
+        Scanner cin=new Scanner(System.in);
+        int left = cin.nextInt();
+        int center = cin.nextInt();
+        int right = cin.nextInt();
+        String result = "NO";
+        
+        if(center-left==right-center){
+        	result = "YES";
+        }
+        
+        System.out.println(result);
+        
+    }
+}

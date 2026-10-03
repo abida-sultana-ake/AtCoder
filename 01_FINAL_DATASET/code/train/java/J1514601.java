@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+		final int N = s.nextInt();
+		int[] hanas = new int[N];
+		for(int i=0; i<N; i++) {
+			hanas[i] = s.nextInt();
+		}
+		s.close();
+
+		int count = 0;
+		for(int i=0; i<N; i++) {
+
+			int hana = hanas[i];
+			boolean checked = false;
+
+			while(!checked) {
+				if(hana%2 == 0 || hana%3 == 2) {
+					hana--;
+					count++;
+				} else {
+					checked = true;
+				}
+			}
+
+		}
+		System.out.println(count);
+	}
+}

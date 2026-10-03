@@ -1,0 +1,56 @@
+import numpy as np
+
+def main():
+    H, W = [int(i) for i in input().split()]
+    N = int(input())
+    a = [int(i) for i in input().split()]
+    
+    color_ar = np.zeros((H, W), dtype=np.int32)
+    #print(color_ar)
+    
+    y = 0
+    x = 0
+    
+    for i in range(N):
+        t = a[i]
+        while t > 0:
+            if(np.count_nonzero(color_ar) == 0):
+                color_ar[0,0] = i + 1
+                if((y + 1) % 2 == 0):
+                    x -= 1
+                else:
+                    x += 1
+                
+                if((x < 0) or (x >= W)):
+                    y += 1
+                    if(x < 0):
+                        x = 0
+                    else:
+                        x = W - 1
+                    
+            else:
+                color_ar[y,x] = i + 1
+                if((y + 1) % 2 == 0):
+                    x -= 1
+                else:
+                    x += 1
+                
+                if((x < 0) or (x >= W)):
+                    y += 1
+                    if(x < 0):
+                        x = 0
+                    else:
+                        x = W - 1
+            t -= 1
+            
+    #print(color_ar)
+    for y in range(H):
+        for x in range(W):
+            print(color_ar[y,x], end="")
+            if(x < W - 1):
+                print(" ",end="")
+        if(y < H - 1 ):
+            print("")
+            
+if __name__=="__main__":
+    main()

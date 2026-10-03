@@ -1,0 +1,13 @@
+import java.util.*;
+public class Main {
+	static Scanner s = new Scanner(System.in);
+	public static void main(String __[]){
+		int a=s.nextInt(),b=s.nextInt();
+		if(a<b) {
+			int c=a;
+			a=b;
+			b=c;
+		}
+		System.out.println(Math.min(Math.abs(a-b),Math.abs(b+10-a)));
+	}
+}

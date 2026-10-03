@@ -1,0 +1,26 @@
+
+import java.util.*;
+public class Main{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int sum =0;
+		double ans;
+		Integer[] rs = new Integer[N];
+		
+		for(int i=0; i<N; i++) {
+			rs[i] = sc.nextInt();
+		}
+		Arrays.sort(rs, Comparator.reverseOrder());
+		for(int i=0; i<N; i++){
+			if(i==0) sum+=rs[0]*rs[0];
+			else if(i%2==0) sum+=rs[i]*rs[i];
+			else if(i%2!=0) sum-=rs[i]*rs[i];
+		}
+		ans = sum * Math.PI;
+		System.out.println(ans);
+	}
+
+}

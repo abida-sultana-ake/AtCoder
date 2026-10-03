@@ -1,0 +1,9 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args){
+		Scanner io = new Scanner(System.in);
+		int N = io.nextInt();
+		System.out.println(N*800-N/15*200);
+	}
+}

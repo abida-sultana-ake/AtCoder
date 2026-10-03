@@ -1,0 +1,26 @@
+n,m = map(int, input().split())
+edges = []
+for i in range(m):
+        edges.append(list(map(int, input().split())))
+
+def search(edges, node_num, start):
+        minf = float("-inf")
+        d = [minf for _ in range(node_num)]
+        d[start] = 0
+        for _ in range(n - 1):
+                update = False
+                for e in edges:
+                        if d[e[0] - 1] != minf and d[e[1] - 1]< d[e[0] - 1] + e[2]:
+                                d[e[1] - 1] = d[e[0] - 1] + e[2]
+                                update = True
+                if not update:
+                        return(d[n - 1])
+        for _ in range(n - 1):
+                for e in edges:
+                        if d[e[0] - 1] != minf and d[e[1] - 1]< d[e[0] - 1] + e[2]:
+                                d[e[1] - 1] = d[e[0] - 1] + e[2]
+                                if e[1] == n:
+                                        return("inf")
+        return(d[n-1])
+
+print(search(edges, n, 0))

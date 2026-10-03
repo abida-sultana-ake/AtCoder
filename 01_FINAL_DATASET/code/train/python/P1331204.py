@@ -1,0 +1,11 @@
+def main():
+    S = input()
+
+    ans = []
+    str_ = 'ABCDEF'
+    for s in str_:
+        n = S.count(s)
+        ans.append(n)
+    print(' '.join(map(str, ans)))
+
+main()

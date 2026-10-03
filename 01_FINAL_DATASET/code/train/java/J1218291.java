@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s = new Scanner(System.in);
+		String str = s.next();
+		String str1 = s.next();
+		String ans = "";
+		ans = ans +"";
+		int i = 0,j=0;
+
+		// StringBuilder sb= new StringBuilder();
+		for (i = 0; i < str.length() && j<str1.length(); i++) {
+			char cc = str.charAt(i);
+		
+			char cf = str1.charAt(j);
+
+			ans = ans + cc + cf;
+			j++;
+		}
+		if (str.length() > str1.length()) {
+			ans = ans + str.charAt(str.length()-1);
+		}
+		if (str.length() < str1.length()) {
+			ans = ans + str1.charAt(str1.length()-1);
+		}
+		System.out.println(ans);
+	}
+
+}

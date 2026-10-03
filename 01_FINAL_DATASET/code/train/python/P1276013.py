@@ -1,0 +1,1 @@
+print((lambda a,b: 'Draw' if abs(a)==abs(b) else 'Ant' if abs(a)<abs(b) else 'Bug')(*[int(_) for _ in input().split()]))

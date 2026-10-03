@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.IntStream;
+
+public class Main{
+	static IntStream REPS(int v){return IntStream.range(0,v);}
+	static IntStream REPS(int l,int r){return IntStream.rangeClosed(l,r);}
+	static IntStream INS(int n) {return REPS(n).map(i->getInt());}
+	static Scanner s=new Scanner(System.in);
+	static int getInt(){return Integer.parseInt(s.next());}
+	public static void main(String[]$){
+		int n=getInt();
+		String in=s.next();
+		List<Integer>l=new ArrayList<>();
+		for(int i=0;i<n;++i){
+			if(i==n-1||in.charAt(i)!=in.charAt(i+1)) {
+				l.add(1);
+			}else {
+				l.add(2);
+				++i;
+			}
+		}
+		long r=l.get(0)==1?3:6,mod=1000000007;
+		for(int i=1;i<l.size();++i) {
+			if(l.get(i-1)==1&&l.get(i)==1) {
+				r*=2;
+			}
+			if(l.get(i-1)==1&&l.get(i)==2) {
+				r*=2;
+			}
+			if(l.get(i-1)==2&&l.get(i)==2) {
+				r*=3;
+			}
+			r%=mod;
+		}
+		System.out.println(r);
+	}
+}
