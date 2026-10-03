@@ -121,36 +121,6 @@ Duplicate source rows removed globally:
 - 450 positive
 - 450 negative
 
-## Folder Structure
-
-Capstone_B_Dataset/
-|
-|-- code/
-|   |-- train/
-|   |   |-- java/
-|   |   `-- python/
-|   |
-|   |-- validation/
-|   |   |-- java/
-|   |   `-- python/
-|   |
-|   `-- test/
-|       |-- java/
-|       `-- python/
-|
-|-- pairs/
-|   |-- all_pairs.csv
-|   |-- train.csv
-|   |-- validation.csv
-|   `-- test.csv
-|
-|-- metadata/
-|   |-- code_metadata.csv
-|   |-- dataset_statistics.csv
-|   `-- dataset_config.json
-|
-`-- README.md
-
 ## Intended Use
 
 This dataset is intended for the Capstone-B clone-analysis pipeline,
